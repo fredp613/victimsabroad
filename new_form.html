@@ -1,0 +1,117 @@
+<style type="text/css">
+
+fieldset legend {
+  border:20px;
+  font-size:1.2em;
+  margin: 2% 2% 2% 2%;	
+}
+
+body {
+  width: 70%;
+  margin: 5% 15% 5% 15%;
+}
+
+</style>
+
+<body>
+
+<form id="form1" action="proces1.cfm" method="post" name="form1" onsubmit="return validate();">
+
+<h2 align='center'>Application for financial assistance for canadians
+victimized abroad</h2>
+
+<fieldset> 
+	<legend>Personal Information</legend>
+
+	<label for='surname'> Surname * 
+	<input type='test' class='textfield' id='surname' />
+	</label><br>
+
+	<label for='surname'> Given name * 
+	<input type='test' class='textfield' id='surname' />
+	</label><br>
+
+	<label for='tdt'> Travel Document Type 
+	<select class='select mandatory' id='tdt'>
+		<option></option>
+		<option>Passport</option>
+		<option>Birth Certificate</option>
+		<option>Student Visa</option>
+		<option>Other</option>
+	</select>
+	</label><br>
+
+	<label for='tdt_specify'> Specify * 
+	<input type='text-area' id='tdt_specify' />
+	</label><br>
+
+
+	<label for='citizenship'> Citizenship 
+	<select class='select mandatory' id='citizenship'>
+		<option></option>
+		<option>Canadian</option>
+		<option>Other</option>	
+	</select>
+	</label><br>
+
+	<label for='citizenship_specify'> Specify * 
+	<input type='test' class='textfield' id='citizenship_specify' />
+	</label>
+
+
+
+
+	<p style='float:right;'>
+	<label for='passportNo'> Passwort Number * 
+	<input type='test' class='textfield' id='passportNo' />
+	</label>
+
+	<label for='passportExpiryDate'> Passport Expiry Date * 
+	<input type='date' class='date' id='passportExpiryDate' />
+	</label>
+
+
+	<label for='status_country'> Status in country 
+	<select class='select mandatory' id='status_country'>
+		<option></option>
+		<option>Student</option>
+		<option>On Business</option>	
+		<option>Tourist</option>
+		<option>other</option>	
+	</select>
+	</label>
+
+	<label for='sc_specify'> Specify * 
+	<input type='test' class='textfield' id='sc_specify' />
+	</label>
+
+	</p>
+
+	<label for='travel_insurance'> Do you have travel insurance? * 
+	Yes<input type='radio' name='ti' id='travel_insurance' value='1' />
+	No<input type='radio' name='ti' id='travel_insurance' value='0' />
+	</label>
+
+</fieldset>
+
+
+<fieldset>
+	<legend>Payment Information</legend>
+
+
+
+
+
+</fieldset>
+
+</form>
+
+</body>
+
+<script type="text/javascript">
+
+
+</script>
+
+
+

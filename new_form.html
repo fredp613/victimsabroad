@@ -14,7 +14,7 @@ legend {
   border-bottom: 1px solid #c1c1c1;
 }
 
-body {
+#container {
   width: 70%;
   margin: 5% 15% 5% 15%;
 }
@@ -56,11 +56,11 @@ fieldset li label  {
   
 }
 
-fieldset li span  {
+/*fieldset li span  {
   width:70px;
   float: left;
 
-}
+}*/
 
 
 
@@ -77,9 +77,9 @@ fieldset li input[type='date']{
 }
 
 fieldset li input[type='radio'] {
-  width:25px;
-  float: right;
-  height: 20px;
+  /*width:25px;*/
+  /*float: right;*/
+  /*height: 20px;*/
 }
 
 select {
@@ -90,17 +90,18 @@ select {
 }
 
 .col2 {
-	margin-left:15%;
-	display: inline-block;
+	margin-left:10%;
+	/*display: inline-block;*/
 }
 
-
-
-
-
+@media (max-width: 1370px) {
+  .col2 {
+  	margin-left: 0;
+  }
+}
 </style>
 
-<body>
+<div id='container'>
 
 <form id="form1" action="proces1.cfm" method="post" name="form1" onsubmit="return validate();">
 
@@ -186,70 +187,158 @@ victimized abroad</h2>
 		<span><input type='radio' name='ti' id='travel_insurance' value='1' />Yes</span>
 		<span><input type='radio' name='ti' id='travel_insurance' value='0' />No</span>
 	</li>
+
+	<li>
+		<label for='addr'> Mailing address (Canadian) * </label>
+		<textarea cols='34' rows='5'></textarea>
+	</li>
 	
 </ul>
 
 <ul class='col2'>
-	<li>
-		<label for='passportNo'> Passwort Number * </label>
-		<input type='text' class='textfield' id='passportNo' />
-	</li>
 	
 
 	<li>
-		<label for='passportExpiryDate'> Passport Expiry Date * </label>
-		<input type='date' class='date' id='passportExpiryDate' />
-	</li>
-
-
-	<li>
-		<label for='passportNo'> Passwort Number * </label>
-		<input type='text' class='textfield' id='passportNo' />
+		<label for='addr'> Mailing address (Outside Canada), if applicable </label>
+		<textarea cols='34' rows='5'></textarea>
 	</li>
 	
+	<li>
+		<label for='payable'> Cheque payable to * </label>
+		<input type='text' class='textfield' id='payable' />
+	</li>
 
 	<li>
-		<label for='passportExpiryDate'> Passport Expiry Date * </label>
-		<input type='date' class='date' id='passportExpiryDate' />
+		<label for='phone1'> Tel.No.(home) * </label>
+		<input type='text' class='textfield' id='phone1' />
 	</li>
-		<li>
-		<label for='passportNo'> Passwort Number * </label>
-		<input type='text' class='textfield' id='passportNo' />
+
+	<li>
+		<label for='phone2'> Tel.No.(office)</label>
+		<input type='text' class='textfield' id='phone2' />
 	</li>
 	
-
 	<li>
-		<label for='passportExpiryDate'> Passport Expiry Date * </label>
-		<input type='date' class='date' id='passportExpiryDate' />
+		<label for='phone3'> Cell phone </label>
+		<input type='text' class='textfield' id='phone3' />
 	</li>
 
+	<li>
+		<label for='phone4'> Fax </label>
+		<input type='text' class='textfield' id='phone4' />
+	</li>
 
 	<li>
-		<label for='passportNo'> Passwort Number * </label>
-		<input type='text' class='textfield' id='passportNo' />
+		<label for='phone5'> Alternate </label>
+		<input type='text' class='textfield' id='phone5' />
+	</li>
+
+	<li>
+		<label for='messages'> Can messages be left? * </label>
+		<span><input type='radio' name='message' id='msg' value='1' />Yes</span>
+		<span><input type='radio' name='message' id='msg' value='0' />No</span>
 	</li>
 	
-
-	<li>
-		<label for='passportExpiryDate'> Passport Expiry Date * </label>
-		<input type='date' class='date' id='passportExpiryDate' />
-	</li>
 </ul>
-
-
-
 
 
 </fieldset>
 
 <fieldset>
-	<legend>Payment Information</legend>
+	<legend>Nature of Victimization</legend>
+
+<ul>
+<li>
+	<strong>Victimization Type *</strong><br>
+	<span><input type='radio' name='nov' id='nov1' value='0' />Homicide</span><br>
+	<span><input type='radio' name='nov' id='nov2' value='1' />Sexual Assault</span><br>
+	<span><input type='radio' name='nov' id='nov3' value='2' />Aggravated sexual assault</span><br>
+	<span><input type='radio' name='nov' id='nov4' value='3' />Assault with serious personal injury</span><br>
+	<span><input type='radio' name='nov' id='nov5' value='4' />Assault with serious peronal violence against a child</span>
+</li>
+
+<li>
+	<label for='locOffence'> Location of Offence (city / country) * </label>
+	<input type='text' class='textfield' id='locOffence' />
+</li>
+
+<li>
+	<label for='offenceDate'> Date offence occurred * </label>
+	<input type='date' class='date' id='offenceDate' />
+</li>
+
+<li>
+	<label for='pol'> Police Report attached * </label>
+	<span><input type='radio' name='police' id='pol' value='1' />Yes</span>
+	<span><input type='radio' name='police' id='pol' value='0' />No</span>
+</li>
+
+<li>
+	<label for='prevAmt'> Previous amount received     $</label>
+	<span><input type='text' class='textfield' id='prevAmt' /></span>
+</li>
+
+<li>
+	<label for='prevAppDate'> Date of previous application * </label>
+	<input type='date' class='date' id='prevAppDate' />
+</li>
+
+<li>
+	<label for='couns'> * If this request is for professional counselling, is counsellor provincially designated by Victim Services? </label>
+	<span><input type='radio' name='counselling' id='couns' value='1' />Yes</span>
+	<span><input type='radio' name='counselling' id='couns' value='0' />No</span>
+</li>
+
+</ul>
+
+<ul class='col2'>
+<li>
+<strong>If this request is to attend court proceedings please provide details:</strong><br><br>
+<label for='where'> Where * </label>
+<input type='text' class='textfield' id='where' />
+</li>
+<li>
+<label for='when'> When * </label>
+<input type='date' class='date' id='when' />
+</li>
+
+<li>
+<label for='duration'> Duration of proceedings </label>
+<input type='text' class='textfield' id='duration' />
+</li>
+
+<li>
+	<strong>In your own words provide a detailed account of what happened:</strong> 
+	<br><br>
+	<textarea cols='68' rows='15'></textarea>
+</li>
+
+
+
+</ul>
+
+
+</fieldset>
+
+
+<fieldset>
+
+<legend>Consent and Submission</legend>
+<ul style='margin-top:-20px'>
+<li>
+	<span style='width:10%'><input type='radio' name='nov' id='consent' value='1' />I agree that Justice Canada can share the information from this application with the Department of Foreign Affairs Canada</span>
+</li>
+<li style='margin-top:-40px' align='center'>
+<input type="submit" value="Submit">&nbsp;
+<input type="reset" value="Reset">
+</li>
+</ul>
 
 </fieldset>
 
 </form>
 
-</body>
+</div>
 
 <script type="text/javascript">
 

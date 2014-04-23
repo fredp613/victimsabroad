@@ -1,15 +1,91 @@
 <style type="text/css">
 
-fieldset legend {
-  border:20px;
-  font-size:1.2em;
-  margin: 2% 2% 2% 2%;	
+
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 21px;
+  line-height: 40px;
+  color: #333333;
+  border: 0;
+  border-bottom: 1px solid #c1c1c1;
 }
 
 body {
   width: 70%;
   margin: 5% 15% 5% 15%;
 }
+
+/*label input select {
+  display: inline-block;
+
+}*/
+fieldset {
+	padding: 0;
+	margin: 0;
+	border: 0;	
+}
+
+fieldset ul {
+  display: block;
+  list-style: none;  
+  padding: 0;
+  width: 500px;
+}
+
+
+fieldset li {
+
+ padding: 10 0 10 0;
+ margin: 10 10 10 10;
+}
+
+fieldset li label  {
+  width:210px;
+  float: left;  
+}
+
+fieldset li span  {
+  width:70px;
+  float: left;
+}
+
+
+fieldset li input[type='text']{
+  width: 240px;
+  height:25px;
+  float: left;	
+}
+
+fieldset li input[type='date']{
+  width: 240px;
+  height:25px;
+  float: left;	
+}
+
+fieldset li input[type='radio'] {
+  width:35px;
+  float: right;
+  height: 20px;
+}
+
+select {
+  border: 1px solid #ccc;
+  width: 250px;
+  height:25px;
+  float: left;
+}
+
+.specify {
+	display:none;
+}
+
+
+
+
 
 </style>
 
@@ -21,79 +97,78 @@ body {
 victimized abroad</h2>
 
 <fieldset> 
-	<legend>Personal Information</legend>
+<legend>Personal Information</legend>
+<ul>
 
-	<label for='surname'> Surname * 
-	<input type='test' class='textfield' id='surname' />
-	</label><br>
+	<li>
+		<label for='surname'> Surname * </label>
+		<input type='text' class='textfield' id='surname' />
+	</li>
 
-	<label for='surname'> Given name * 
-	<input type='test' class='textfield' id='surname' />
-	</label><br>
+	<li>
+		<label for='surname'> Given name * </label>
+		<input type='text' class='textfield' id='surname' />
+	</li>
 
-	<label for='tdt'> Travel Document Type 
-	<select class='select mandatory' id='tdt'>
-		<option></option>
-		<option>Passport</option>
-		<option>Birth Certificate</option>
-		<option>Student Visa</option>
-		<option>Other</option>
-	</select>
-	</label><br>
+	<li id='type'>
+		<label for='tdt'> Travel Document Type</label> 
+		<select class='select mandatory' id='tdt'>
+			<option></option>
+			<option>Passport</option>
+			<option>Birth Certificate</option>
+			<option>Student Visa</option>
+			<option>Other</option>
+		</select>
 
-	<label for='tdt_specify'> Specify * 
-	<input type='text-area' id='tdt_specify' />
-	</label><br>
-
-
-	<label for='citizenship'> Citizenship 
-	<select class='select mandatory' id='citizenship'>
-		<option></option>
-		<option>Canadian</option>
-		<option>Other</option>	
-	</select>
-	</label><br>
-
-	<label for='citizenship_specify'> Specify * 
-	<input type='test' class='textfield' id='citizenship_specify' />
-	</label>
+		
 
 
 
-
-	<p style='float:right;'>
-	<label for='passportNo'> Passwort Number * 
-	<input type='test' class='textfield' id='passportNo' />
-	</label>
-
-	<label for='passportExpiryDate'> Passport Expiry Date * 
-	<input type='date' class='date' id='passportExpiryDate' />
-	</label>
+	</li>
 
 
-	<label for='status_country'> Status in country 
-	<select class='select mandatory' id='status_country'>
-		<option></option>
-		<option>Student</option>
-		<option>On Business</option>	
-		<option>Tourist</option>
-		<option>other</option>	
-	</select>
-	</label>
+	<li id='citi'>
+		<label for='citizenship'> Citizenship </label>
+		<select class='select mandatory' id='citizenship'>
+			<option></option>
+			<option>Canadian</option>
+			<option>Other</option>	
+		</select>
+	</li>
+	
+	<li>
+		<label for='passportNo'> Passwort Number * </label>
+		<input type='text' class='textfield' id='passportNo' />
+	</li>
+	
 
-	<label for='sc_specify'> Specify * 
-	<input type='test' class='textfield' id='sc_specify' />
-	</label>
+	<li>
+		<label for='passportExpiryDate'> Passport Expiry Date * </label>
+		<input type='date' class='date' id='passportExpiryDate' />
+	</li>
+	
 
-	</p>
+	<li id='status'>
+		<label for='status_country'> Status in country </label>
+		<select class='select mandatory' id='status_country'>
+			<option></option>
+			<option>Student</option>
+			<option>On Business</option>	
+			<option>Tourist</option>
+			<option>Other</option>	
+		</select>
+	</li>
+	
 
-	<label for='travel_insurance'> Do you have travel insurance? * 
-	Yes<input type='radio' name='ti' id='travel_insurance' value='1' />
-	No<input type='radio' name='ti' id='travel_insurance' value='0' />
-	</label>
-
+	
+	<li>
+		<label for='travel_insurance'> Do you have travel insurance? * </label>
+		<span><input type='radio' name='ti' id='travel_insurance' value='1' />Yes</span>
+		<span><input type='radio' name='ti' id='travel_insurance' value='0' />No</span>
+	</li>
+	
+</ul>
 </fieldset>
-
 
 <fieldset>
 	<legend>Payment Information</legend>
@@ -109,6 +184,78 @@ victimized abroad</h2>
 </body>
 
 <script type="text/javascript">
+
+	var $tdt = document.getElementById("tdt");
+	var $citizenship = document.getElementById("citizenship");
+	var $status = document.getElementById("status_country")
+
+	$tdt.onchange=function() {
+		var container = document.getElementById("type")
+		
+		if (this.value == "Other") {
+			//build specify field
+			 var input = document.createElement("input")
+			 input.type = "text";
+			 input.id = "specify_type";
+			 input.class = "textfield";
+			 input.style.margin = "10"
+			 input.style.width = "240px"
+			 input.style.height = "25px"
+			 input.style.float = "left"
+
+			 var label = document.createElement("label")
+			 label.id = "specify_type_lbl"
+			 label.innerHTML = "specify *";			 
+			 label.style.width = "200px";			 
+			 label.style.float = "left";
+			 label.style.margin = "10 0 0 0";
+			
+
+			 container.appendChild(label);			 
+			 container.appendChild(input);
+		}
+		else {
+			if (document.getElementById("specify_type")) {
+			 document.getElementById("specify_type").remove();
+			 document.getElementById("specify_type_lbl").remove();
+			}
+		}
+	}
+
+	$status.onchange=function() {
+		var container = document.getElementById("status")
+		
+		if (this.value == "Other") {
+			//build specify field
+			 var input = document.createElement("input")
+			 input.type = "text";
+			 input.id = "status_other";
+			 input.class = "textfield";
+			 input.style.margin = "10"
+			 input.style.width = "240px"
+			 input.style.height = "25px"
+			 input.style.float = "left"
+
+			 var label = document.createElement("label")
+			 label.id = "status_other_lbl"
+			 label.innerHTML = "specify *";			 
+			 label.style.width = "200px";			 
+			 label.style.float = "left";
+			 label.style.margin = "10 0 0 0";
+			
+
+			 container.appendChild(label);			 
+			 container.appendChild(input);
+		}
+		else {
+			if (document.getElementById("status_other")) {
+			 document.getElementById("status_other").remove();
+			 document.getElementById("status_other_lbl").remove();
+			}
+		}
+	}
+
+
 
 
 </script>

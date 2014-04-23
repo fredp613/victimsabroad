@@ -25,49 +25,59 @@ body {
 }*/
 fieldset {
 	padding: 0;
-	margin: 0;
+	margin: auto;
 	border: 0;	
+	
 }
 
 fieldset ul {
-  display: block;
+  display: inline-block;
   list-style: none;  
   padding: 0;
-  width: 500px;
+  float:left;
+  /*width: 40%;*/
 }
 
 
 fieldset li {
 
- padding: 10 0 10 0;
- margin: 10 10 10 10;
+ padding: 5% 0 5% 0;
+ 
+}
+
+fieldset li input {
+	/*margin:auto;*/
 }
 
 fieldset li label  {
   width:210px;
-  float: left;  
+  float: left; 
+  /*margin:5px; */
+  
 }
 
 fieldset li span  {
   width:70px;
   float: left;
+
 }
 
 
+
 fieldset li input[type='text']{
-  width: 240px;
+  width: 250px;
   height:25px;
   float: left;	
 }
 
 fieldset li input[type='date']{
-  width: 240px;
+  width: 250px;
   height:25px;
   float: left;	
 }
 
 fieldset li input[type='radio'] {
-  width:35px;
+  width:25px;
   float: right;
   height: 20px;
 }
@@ -79,8 +89,9 @@ select {
   float: left;
 }
 
-.specify {
-	display:none;
+.col2 {
+	margin-left:15%;
+	display: inline-block;
 }
 
 
@@ -97,8 +108,9 @@ select {
 victimized abroad</h2>
 
 <fieldset> 
-<legend>Personal Information</legend>
-<ul>
+<legend>Personal and Payment Information</legend>
+
+<ul class='col1'>
 
 	<li>
 		<label for='surname'> Surname * </label>
@@ -110,7 +122,7 @@ victimized abroad</h2>
 		<input type='text' class='textfield' id='surname' />
 	</li>
 
-	<li id='type'>
+	<li>
 		<label for='tdt'> Travel Document Type</label> 
 		<select class='select mandatory' id='tdt'>
 			<option></option>
@@ -119,23 +131,28 @@ victimized abroad</h2>
 			<option>Student Visa</option>
 			<option>Other</option>
 		</select>
-
-		
-
-
-
 	</li>
 
+	<li id='type' style='display:none;'>
+		<label for='specify_type'> Specify status * </label>
+		<input type='text' class='textfield' id='specify_type' />
+	</li>
+	
 
-	<li id='citi'>
+	<li>
 		<label for='citizenship'> Citizenship </label>
 		<select class='select mandatory' id='citizenship'>
 			<option></option>
 			<option>Canadian</option>
 			<option>Other</option>	
-		</select>
+		</select>		
 	</li>
 	
+	<li id='citi' style='display:none;'>
+		<label for='specify_citi'> Specify citizenship * </label>
+		<input type='text' class='textfield' id='specify_citi' />
+	</li>
+
 	<li>
 		<label for='passportNo'> Passwort Number * </label>
 		<input type='text' class='textfield' id='passportNo' />
@@ -148,7 +165,7 @@ victimized abroad</h2>
 	</li>
 	
 
-	<li id='status'>
+	<li>
 		<label for='status_country'> Status in country </label>
 		<select class='select mandatory' id='status_country'>
 			<option></option>
@@ -158,8 +175,11 @@ victimized abroad</h2>
 			<option>Other</option>	
 		</select>
 	</li>
-	
 
+	<li id='status' style='display:none;'>
+		<label for='specify_status'> Specify status * </label>
+		<input type='text' class='textfield' id='specify_status' />
+	</li>
 	
 	<li>
 		<label for='travel_insurance'> Do you have travel insurance? * </label>
@@ -168,14 +188,62 @@ victimized abroad</h2>
 	</li>
 	
 </ul>
+
+<ul class='col2'>
+	<li>
+		<label for='passportNo'> Passwort Number * </label>
+		<input type='text' class='textfield' id='passportNo' />
+	</li>
+	
+
+	<li>
+		<label for='passportExpiryDate'> Passport Expiry Date * </label>
+		<input type='date' class='date' id='passportExpiryDate' />
+	</li>
+
+
+	<li>
+		<label for='passportNo'> Passwort Number * </label>
+		<input type='text' class='textfield' id='passportNo' />
+	</li>
+	
+
+	<li>
+		<label for='passportExpiryDate'> Passport Expiry Date * </label>
+		<input type='date' class='date' id='passportExpiryDate' />
+	</li>
+		<li>
+		<label for='passportNo'> Passwort Number * </label>
+		<input type='text' class='textfield' id='passportNo' />
+	</li>
+	
+
+	<li>
+		<label for='passportExpiryDate'> Passport Expiry Date * </label>
+		<input type='date' class='date' id='passportExpiryDate' />
+	</li>
+
+
+	<li>
+		<label for='passportNo'> Passwort Number * </label>
+		<input type='text' class='textfield' id='passportNo' />
+	</li>
+	
+
+	<li>
+		<label for='passportExpiryDate'> Passport Expiry Date * </label>
+		<input type='date' class='date' id='passportExpiryDate' />
+	</li>
+</ul>
+
+
+
+
+
 </fieldset>
 
 <fieldset>
 	<legend>Payment Information</legend>
-
-
-
-
 
 </fieldset>
 
@@ -193,31 +261,26 @@ victimized abroad</h2>
 		var container = document.getElementById("type")
 		
 		if (this.value == "Other") {
-			//build specify field
-			 var input = document.createElement("input")
-			 input.type = "text";
-			 input.id = "specify_type";
-			 input.class = "textfield";
-			 input.style.margin = "10"
-			 input.style.width = "240px"
-			 input.style.height = "25px"
-			 input.style.float = "left"
-
-			 var label = document.createElement("label")
-			 label.id = "specify_type_lbl"
-			 label.innerHTML = "specify *";			 
-			 label.style.width = "200px";			 
-			 label.style.float = "left";
-			 label.style.margin = "10 0 0 0";
+			container.style.display = 'block'
 			
-
-			 container.appendChild(label);			 
-			 container.appendChild(input);
 		}
 		else {
 			if (document.getElementById("specify_type")) {
-			 document.getElementById("specify_type").remove();
-			 document.getElementById("specify_type_lbl").remove();
+				container.style.display = 'none'
+			}
+		}
+	}
+
+	$citizenship.onchange=function() {
+		var container = document.getElementById("citi")
+		
+		if (this.value == "Other") {
+			container.style.display = 'block'
+			
+		}
+		else {
+			if (document.getElementById("specify_citi")) {
+				container.style.display = 'none'
 			}
 		}
 	}
@@ -226,31 +289,12 @@ victimized abroad</h2>
 		var container = document.getElementById("status")
 		
 		if (this.value == "Other") {
-			//build specify field
-			 var input = document.createElement("input")
-			 input.type = "text";
-			 input.id = "status_other";
-			 input.class = "textfield";
-			 input.style.margin = "10"
-			 input.style.width = "240px"
-			 input.style.height = "25px"
-			 input.style.float = "left"
-
-			 var label = document.createElement("label")
-			 label.id = "status_other_lbl"
-			 label.innerHTML = "specify *";			 
-			 label.style.width = "200px";			 
-			 label.style.float = "left";
-			 label.style.margin = "10 0 0 0";
+			container.style.display = 'block'
 			
-
-			 container.appendChild(label);			 
-			 container.appendChild(input);
 		}
 		else {
-			if (document.getElementById("status_other")) {
-			 document.getElementById("status_other").remove();
-			 document.getElementById("status_other_lbl").remove();
+			if (document.getElementById("specify_status")) {
+				container.style.display = 'none'
 			}
 		}
 	}

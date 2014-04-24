@@ -82,6 +82,46 @@ fieldset li input[type='radio'] {
   /*height: 20px;*/
 }
 
+input[type='submit'] {
+	color:white;
+	line-height: inherit;
+	text-decoration: none;
+	-webkit-transition: background-color 300ms ease-out;
+	background-color: #008CBA;
+	border: 0 solid #007295;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	cursor: pointer;
+	display: inline-block;
+	font-family: sans-serif;
+	font-size: 0.88889rem;
+	padding: 0.88889rem 1.77778rem 0.94444rem;
+	position:relative;
+	transition: background-color 330ms ease-out;
+}
+
+input[type='reset'] {
+	color:white;
+	line-height: inherit;
+	text-decoration: none;
+	-webkit-transition: background-color 300ms ease-out;
+	background-color: #cc3333;
+	border: 0 solid #993333;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	cursor: pointer;
+	display: inline-block;
+	font-family: sans-serif;
+	font-size: 0.88889rem;
+	padding: 0.88889rem 1.77778rem 0.94444rem;
+	position:relative;
+	transition: background-color 330ms ease-out;
+}
+
 select {
   border: 1px solid #ccc;
   width: 250px;
@@ -93,6 +133,11 @@ select {
 	margin-left:10%;
 	/*display: inline-block;*/
 }
+.man {
+	color:#ff0000;
+}
+
+
 
 @media (max-width: 1370px) {
   .col2 {
@@ -114,13 +159,13 @@ victimized abroad</h2>
 <ul class='col1'>
 
 	<li>
-		<label for='surname'> Surname * </label>
-		<input type='text' class='textfield' id='surname' />
+		<label for='surname'> Surname <span class='man'>*</span> </label>
+		<input type='text' class='mandatory textfield' id='surname' />
 	</li>
 
 	<li>
-		<label for='surname'> Given name * </label>
-		<input type='text' class='textfield' id='surname' />
+		<label for='givenname'> Given name <span class='man'>*</span> </label>
+		<input type='text' class='mandatory textfield' id='surname' />
 	</li>
 
 	<li>
@@ -135,8 +180,8 @@ victimized abroad</h2>
 	</li>
 
 	<li id='type' style='display:none;'>
-		<label for='specify_type'> Specify status * </label>
-		<input type='text' class='textfield' id='specify_type' />
+		<label for='specify_type'> Specify type <span class='man'>*</span> </label>
+		<input type='text' class='mandatory textfield' id='specify_type' />
 	</li>
 	
 
@@ -150,19 +195,19 @@ victimized abroad</h2>
 	</li>
 	
 	<li id='citi' style='display:none;'>
-		<label for='specify_citi'> Specify citizenship * </label>
-		<input type='text' class='textfield' id='specify_citi' />
+		<label for='specify_citi'> Specify citizenship <span class='man'>*</span> </label>
+		<input type='text' class='mandatory textfield' id='specify_citi' />
 	</li>
 
 	<li>
-		<label for='passportNo'> Passwort Number * </label>
-		<input type='text' class='textfield' id='passportNo' />
+		<label for='passportNo'> Passwort Number <span class='man'>*</span> </label>
+		<input type='text' class='mandatory textfield' id='passportNo' />
 	</li>
 	
 
 	<li>
-		<label for='passportExpiryDate'> Passport Expiry Date * </label>
-		<input type='date' class='date' id='passportExpiryDate' />
+		<label for='passportExpiryDate'> Passport Expiry Date <span class='man'>*</span> </label>
+		<input type='date' class='mandatory date' id='passportExpiryDate' />
 	</li>
 	
 
@@ -178,19 +223,21 @@ victimized abroad</h2>
 	</li>
 
 	<li id='status' style='display:none;'>
-		<label for='specify_status'> Specify status * </label>
-		<input type='text' class='textfield' id='specify_status' />
+		<label for='specify_status'> Specify status <span class='man'>*</span> </label>
+		<input type='text' class='mandatory textfield' id='specify_status' />
 	</li>
 	
 	<li>
-		<label for='travel_insurance'> Do you have travel insurance? * </label>
-		<span><input type='radio' name='ti' id='travel_insurance' value='1' />Yes</span>
-		<span><input type='radio' name='ti' id='travel_insurance' value='0' />No</span>
+		<label for='travel_insurance' class='mandatory'> Do you have travel insurance? <span class='man'>*</span> </label>
+		<span class='mandatory'>
+			<span><input type='radio' class='yes' name='ti' id='travel_insurance' value='1' />Yes</span>
+			<span><input type='radio' class='no' name='ti' id='travel_insurance' value='0' />No</span>
+		</span>
 	</li>
 
 	<li>
-		<label for='addr'> Mailing address (Canadian) * </label>
-		<textarea cols='34' rows='5'></textarea>
+		<label for='addr'> Mailing address (Canadian) <span class='man'>*</span> </label>
+		<textarea class='mandatory' cols='34' rows='5'></textarea>
 	</li>
 	
 </ul>
@@ -204,39 +251,41 @@ victimized abroad</h2>
 	</li>
 	
 	<li>
-		<label for='payable'> Cheque payable to * </label>
-		<input type='text' class='textfield' id='payable' />
+		<label for='payable'> Cheque payable to <span class='man'>*</span> </label>
+		<input type='text' class='mandatory textfield' id='payable' />
 	</li>
 
 	<li>
-		<label for='phone1'> Tel.No.(home) * </label>
-		<input type='text' class='textfield' id='phone1' />
+		<label for='phone1'> Tel.No.(home) <span class='man'>*</span> </label>
+		<input type='text' class='mandatory textfield' id='phone1' />
 	</li>
 
 	<li>
 		<label for='phone2'> Tel.No.(office)</label>
-		<input type='text' class='textfield' id='phone2' />
+		<input type='text' class='mandatory textfield' id='phone2' />
 	</li>
 	
 	<li>
 		<label for='phone3'> Cell phone </label>
-		<input type='text' class='textfield' id='phone3' />
+		<input type='text' class='mandatory textfield' id='phone3' />
 	</li>
 
 	<li>
 		<label for='phone4'> Fax </label>
-		<input type='text' class='textfield' id='phone4' />
+		<input type='text' class='mandatory textfield' id='phone4' />
 	</li>
 
 	<li>
 		<label for='phone5'> Alternate </label>
-		<input type='text' class='textfield' id='phone5' />
+		<input type='text' class='mandatory textfield' id='phone5' />
 	</li>
 
 	<li>
-		<label for='messages'> Can messages be left? * </label>
-		<span><input type='radio' name='message' id='msg' value='1' />Yes</span>
-		<span><input type='radio' name='message' id='msg' value='0' />No</span>
+		<label for='messages'> Can messages be left? <span class='man'>*</span> </label>
+		<span class='mandatory'>
+			<span><input type='radio' name='message' id='msg' value='1' />Yes</span>
+			<span><input type='radio' name='message' id='msg' value='0' />No</span>
+		</span>
 	</li>
 	
 </ul>
@@ -249,42 +298,44 @@ victimized abroad</h2>
 
 <ul>
 <li>
-	<strong>Victimization Type *</strong><br>
-	<span><input type='radio' name='nov' id='nov1' value='0' />Homicide</span><br>
-	<span><input type='radio' name='nov' id='nov2' value='1' />Sexual Assault</span><br>
-	<span><input type='radio' name='nov' id='nov3' value='2' />Aggravated sexual assault</span><br>
-	<span><input type='radio' name='nov' id='nov4' value='3' />Assault with serious personal injury</span><br>
-	<span><input type='radio' name='nov' id='nov5' value='4' />Assault with serious peronal violence against a child</span>
+	<strong>Victimization Type <span class='man'>*</span></strong><br>
+	<span class='mtl_radio_mandatory'>
+		<span><input type='radio' name='nov' id='nov1' value='0' />Homicide</span><br>
+		<span><input type='radio' name='nov' id='nov2' value='1' />Sexual Assault</span><br>
+		<span><input type='radio' name='nov' id='nov3' value='2' />Aggravated sexual assault</span><br>
+		<span><input type='radio' name='nov' id='nov4' value='3' />Assault with serious personal injury</span><br>
+		<span><input type='radio' name='nov' id='nov5' value='4' />Assault with serious peronal violence against a child</span>	
+	</span>
 </li>
 
 <li>
-	<label for='locOffence'> Location of Offence (city / country) * </label>
-	<input type='text' class='textfield' id='locOffence' />
+	<label for='locOffence'> Location of Offence (city / country) <span class='man'>*</span> </label>
+	<input type='text' class='mandatory textfield' id='locOffence' />
 </li>
 
 <li>
-	<label for='offenceDate'> Date offence occurred * </label>
-	<input type='date' class='date' id='offenceDate' />
+	<label for='offenceDate'> Date offence occurred <span class='man'>*</span> </label>
+	<input type='date' class='mandatory date' id='offenceDate' />
 </li>
 
 <li>
-	<label for='pol'> Police Report attached * </label>
+	<label for='pol'> Police Report attached <span class='man'>*</span> </label>
 	<span><input type='radio' name='police' id='pol' value='1' />Yes</span>
 	<span><input type='radio' name='police' id='pol' value='0' />No</span>
 </li>
 
 <li>
 	<label for='prevAmt'> Previous amount received     $</label>
-	<span><input type='text' class='textfield' id='prevAmt' /></span>
+	<span><input type='text' class='mandatory textfield' id='prevAmt' /></span>
 </li>
 
 <li>
-	<label for='prevAppDate'> Date of previous application * </label>
-	<input type='date' class='date' id='prevAppDate' />
+	<label for='prevAppDate'> Date of previous application <span class='man'>*</span> </label>
+	<input type='date' class='mandatory date' id='prevAppDate' />
 </li>
 
 <li>
-	<label for='couns'> * If this request is for professional counselling, is counsellor provincially designated by Victim Services? </label>
+	<label for='couns'> <span class='man'>*</span> If this request is for professional counselling, is counsellor provincially designated by Victim Services? </label>
 	<span><input type='radio' name='counselling' id='couns' value='1' />Yes</span>
 	<span><input type='radio' name='counselling' id='couns' value='0' />No</span>
 </li>
@@ -295,16 +346,16 @@ victimized abroad</h2>
 <li>
 <strong>If this request is to attend court proceedings please provide details:</strong><br><br>
 <label for='where'> Where * </label>
-<input type='text' class='textfield' id='where' />
+<input type='text' class='mandatory textfield' id='where' />
 </li>
 <li>
 <label for='when'> When * </label>
-<input type='date' class='date' id='when' />
+<input type='date' class='mandatory date' id='when' />
 </li>
 
 <li>
 <label for='duration'> Duration of proceedings </label>
-<input type='text' class='textfield' id='duration' />
+<input type='text' class='mandatory textfield' id='duration' />
 </li>
 
 <li>
@@ -328,13 +379,10 @@ victimized abroad</h2>
 <li>
 	<span style='width:10%'><input type='radio' name='nov' id='consent' value='1' />I agree that Justice Canada can share the information from this application with the Department of Foreign Affairs Canada</span>
 </li>
-<li style='margin-top:-40px' align='center'>
-<input type="submit" value="Submit">&nbsp;
-<input type="reset" value="Reset">
-</li>
 </ul>
-
 </fieldset>
+<p align='center' style='margin-top:-20px'><input type="submit" value="Submit">&nbsp;
+<input type="reset" value="Reset"></p>
 
 </form>
 
@@ -387,6 +435,64 @@ victimized abroad</h2>
 			}
 		}
 	}
+
+	function validate() {
+			// var $fieldarray = document.getAttribute("class");		     
+	    var inputs = document.getElementsByTagName("input");
+	    var spans = document.getElementsByTagName("span");
+	    var textareas = document.getElementsByTagName("textarea");
+	    
+
+	    var found = [];
+
+	    for(var i=0, len=inputs.length; i<len; i++){
+	       if(inputs[i].className.substr(0,9)=="mandatory"){                       
+           	 if (inputs[i].value == "") {	            	
+            	inputs[i].style.border = "2px solid #ff0000";
+            	found.push(inputs[i]);
+        	 } else {
+        		inputs[i].className = "mandatory textfield"
+        		inputs[i].style.border = "1px solid #808080";	            	
+        	 }        
+
+           }
+        }
+	    
+	    for(var i=0, len=spans.length; i<len; i++){
+	    
+	       if(spans[i].className.substr(0,9)=="mandatory" ){  	       	
+	    	var radios = spans[i].getElementsByTagName("input");	   		       
+		       	 if (!radios[0].checked && !radios[1].checked ) {	            	            	
+	            	  spans[i].style.border = "2px solid #ff0000";	            	             	
+	            	  found.push(spans[i]);
+	        	 } else {
+	        		spans[i].className = "mandatory"
+	        		spans[i].style.border  = "transparent";	            	
+	        	 }	        
+           	} 
+           
+	    }	   
+
+	    for(var i=0, len=textareas.length; i<len; i++){
+	       if(textareas[i].className.substr(0,9)=="mandatory" ){                       
+           	 if (textareas[i].value == "") {	            	
+            	textareas[i].style.border = "2px solid #ff0000";
+            	found.push(textareas[i]);
+        	 } else {
+        		textareas[i].className = "mandatory"
+        		textareas[i].style.border = "1px solid #808080";	            	
+        	 }        
+
+           }
+	    }
+	   
+	    
+	    alert(found.length + " elements found");
+	     // alert(document.getElementById("surname").className.substr(0,9))
+	    if (found.length > 0) {
+			return false;
+		} 
+  }
 
 
 

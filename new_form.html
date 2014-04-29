@@ -1,6 +1,52 @@
 <style type="text/css">
 
 
+body {
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 0 15%;
+	top:0;
+	
+
+}
+
+#header {
+	background-color: #000000;
+	border: 1px;
+	height:7%;
+	left:0;
+	position:absolute;
+	width:100%;
+	top:0;
+}
+
+
+#body_container {
+	width:80%;
+	background-color: #cccccc;
+	padding:1%;
+	position:absolute;
+	margin: 18% 15% 10% 10%;
+
+}
+
+#container {
+  width: 80%;  
+  padding:1.5%;
+  background-color: #ffffff;
+  float:right;
+
+}
+
+#header_text li {
+	float:right;
+	display: inline;
+	list-style-type: none;
+	color:white;
+	padding:0.5%;
+}
+
+
 
 legend {
   display: block;
@@ -14,10 +60,7 @@ legend {
   border-bottom: 1px solid #c1c1c1;
 }
 
-#container {
-  width: 70%;
-  margin: 5% 15% 5% 15%;
-}
+
 
 /*label input select {
   display: inline-block;
@@ -27,6 +70,7 @@ fieldset {
 	padding: 0;
 	margin: auto;
 	border: 0;	
+
 	
 }
 
@@ -35,7 +79,9 @@ fieldset ul {
   list-style: none;  
   padding: 0;
   float:left;
-  /*width: 40%;*/
+  margin-right: 7%;
+
+  
 }
 
 
@@ -68,18 +114,24 @@ fieldset li input[type='text']{
   width: 250px;
   height:25px;
   float: left;	
+  border-radius: 5px;
 }
 
 fieldset li input[type='date']{
   width: 250px;
   height:25px;
   float: left;	
+  border-radius: 5px;
 }
 
 fieldset li input[type='radio'] {
   /*width:25px;*/
   /*float: right;*/
   /*height: 20px;*/
+}
+
+fieldset textarea {
+	border-radius: 5px;
 }
 
 input[type='submit'] {
@@ -129,9 +181,18 @@ select {
   float: left;
 }
 
+
+.col1 {
+	
+	padding-right: 5%;
+	float:left;
+}
+
 .col2 {
-	margin-left:10%;
-	/*display: inline-block;*/
+	
+	margin:0 auto;	
+	float:left;
+
 }
 .man {
 	color:#ff0000;
@@ -139,260 +200,358 @@ select {
 
 
 
-@media (max-width: 1370px) {
+@media (max-width: 1355px) {
   .col2 {
   	margin-left: 0;
   }
 }
 </style>
 
-<div id='container'>
+<body background='/Users/fpearson/Downloads/header-bg-ie.jpg'>
 
-<form id="form1" action="proces1.cfm" method="post" name="form1" onsubmit="return validate();">
+<div id='header'>
 
-<h2 align='center'>Application for financial assistance for canadians
-victimized abroad</h2>
+<ul id='header_text'>
+<li>Francais</li>
+<li>Departments</li>
+<li>Services</li>
+<li>Canada.gc.ca</li>
+</ul>
+</div>
 
-<fieldset> 
-<legend>Personal and Payment Information</legend>
+<div id='body_container'>
+	<div id='container'>
 
-<ul class='col1'>
+	<form id="form1" action="proces1.cfm" method="post" name="form1" onsubmit="return validate();">
+
+	<h2 align='center'>Application for financial assistance for canadians
+	victimized abroad</h2><span class='man'>* Denotes mandatory fields</span>
+
+	<fieldset> 
+	<legend>Personal and Payment Information</legend>
+
+	<ul class='col1'>
+
+		<li>		
+			<label for='vs'>I am applying as the <span class='man'>*</span></label>
+			<span class='mandatory' style='float:left;'>
+			  <span><input type='radio' name='victim_support' id='vs' value='0' />victim</span><br>
+			  <span><input type='radio' name='victim_support' id='vs1' value='1' />support person for the victim</span>
+			</span><br>
+		</li>
+
+		<li id='type_support' style='display:none;'>
+			<label for='support_type'> What is your relationship to the victim?<span class='man'>*</span> </label>
+			<input type='text' class='mandatory textfield' id='support_type' />
+		</li>
+
+		<li>
+			<label for='surname'> Surname <span class='man'>*</span> </label>
+			<input type='text' class='mandatory textfield' id='surname' />
+		</li>
+
+		<li>
+			<label for='givenname'> Given name <span class='man'>*</span> </label>
+			<input type='text' class='mandatory textfield' id='surname' />
+		</li>
+
+		<li>
+			<label for='citizenship'> Citizenship </label>
+			<select class='select mandatory' id='citizenship'>
+				<option></option>
+				<option>Canadian</option>
+				<option>Other</option>	
+			</select>		
+		</li>
+		
+		<li id='citi' style='display:none;'>
+			<label for='specify_citi'> Specify citizenship <span class='man'>*</span> </label>
+			<input type='text' class='mandatory textfield' id='specify_citi' />
+		</li>
+
+		<li>
+			<label for='tdt'> Travel Document Type</label> 
+			<select class='select mandatory' id='tdt'>
+				<option></option>
+				<option>Passport</option>
+				<option>Birth Certificate</option>
+				<option>Student Visa</option>
+				<option>Other</option>
+			</select>
+		</li>
+
+		<li id='type' style='display:none;'>
+			<label for='specify_type'> Specify type <span class='man'>*</span> </label>
+			<input type='text' class='mandatory textfield' id='specify_type' />
+		</li>
+		
+
+		<li style='display:none;'>
+			<label for='passportNo'> Passport Number <span class='man'>*</span> </label>
+			<input type='text' class='mandatory textfield' id='passportNo' />
+		</li>
+		
+
+		<li style='display:none;'>
+			<label for='passportExpiryDate'> Passport Expiry Date <span class='man'>*</span> </label>
+			<input type='date' class='mandatory date' id='passportExpiryDate' />
+		</li>
+		
+
+		<li>
+			<label for='status_country'> Status in country </label>
+			<select class='select mandatory' id='status_country'>
+				<option></option>
+				<option>Student</option>
+				<option>On Business</option>	
+				<option>Tourist</option>
+				<option>Other</option>	
+			</select>
+		</li>
+
+		<li id='status' style='display:none;'>
+			<label for='specify_status'> Specify status <span class='man'>*</span> </label>
+			<input type='text' class='mandatory textfield' id='specify_status' />
+		</li>
+		
+		<li>
+			<label for='travel_insurance' class='mandatory'> Do you have travel insurance? <span class='man'>*</span> </label>
+			<span class='mandatory' style='float:left;'>
+				<span><input type='radio' class='yes' name='ti' id='travel_insurance' value='1' />Yes</span>
+				<span><input type='radio' class='no' name='ti' id='travel_insurance' value='0' />No</span>
+			</span>
+		</li>
+
+		<li>
+			<label for='addr'> Mailing address (Canadian) <span class='man'>*</span> </label>
+			<textarea class='mandatory' cols='32' rows='5'></textarea>
+		</li>
+		
+	</ul>
+
+	<ul class='col2'>
+		
+
+		<li>
+			<label for='addr'> Mailing address (Outside Canada), if applicable </label>
+			<textarea cols='32' rows='5'></textarea>
+		</li>
+		
+		<li>
+			<label for='payable'> Cheque payable to <span class='man'>*</span> </label>
+			<input type='text' class='mandatory textfield' id='payable' />
+		</li>
+
+		<li>
+			<label for='phone1'> Tel.No.(home) <span class='man'>*</span> </label>
+			<input type='text' class='mandatory textfield' id='phone1' />
+		</li>
+
+		<li>
+			<label for='phone2'> Tel.No.(office)</label>
+			<input type='text' class='textfield' id='phone2' />
+		</li>
+		
+		<li>
+			<label for='phone3'> Cell phone </label>
+			<input type='text' class='textfield' id='phone3' />
+		</li>
+
+		<li>
+			<label for='phone4'> Fax </label>
+			<input type='text' class='textfield' id='phone4' />
+		</li>
+
+		<li>
+			<label for='phone5'> Alternate </label>
+			<input type='text' class='textfield' id='phone5' />
+		</li>
+		
+		
+	</ul>
+
+
+	</fieldset>
+
+	<fieldset>
+		<legend>Nature of Victimization</legend>
+
+	<ul class='col1'>
+	<li>
+		<strong>Victimization Type <span class='man'>*</span></strong><br><br>
+		<span id='vf_type' class='mandatory' style='float:left;'>
+			<span><input type='radio' name='nov' id='nov1' value='0' />Homicide</span><br>
+			<span><input type='radio' name='nov' id='nov2' value='1' />Sexual Assault</span><br>
+			<span><input type='radio' name='nov' id='nov3' value='2' />Aggravated sexual assault</span><br>
+			<span><input type='radio' name='nov' id='nov4' value='3' />Assault with serious personal injury</span><br>
+			<span><input type='radio' name='nov' id='nov5' value='4' />Assault with serious peronal violence against a child</span>	
+		</span><br><br><br><br>
+	</li>
 
 	<li>
-		<label for='surname'> Surname <span class='man'>*</span> </label>
-		<input type='text' class='mandatory textfield' id='surname' />
+		<label for='locOffence'> Location of Offence (city / country) <span class='man'>*</span> </label>
+		<input type='text' class='mandatory textfield' id='locOffence' />
 	</li>
 
 	<li>
-		<label for='givenname'> Given name <span class='man'>*</span> </label>
-		<input type='text' class='mandatory textfield' id='surname' />
+		<label for='offenceDate'> Date offence occurred <span class='man'>*</span> </label>
+		<input type='date' class='mandatory date' id='offenceDate' />
 	</li>
 
 	<li>
-		<label for='tdt'> Travel Document Type</label> 
-		<select class='select mandatory' id='tdt'>
-			<option></option>
-			<option>Passport</option>
-			<option>Birth Certificate</option>
-			<option>Student Visa</option>
-			<option>Other</option>
-		</select>
-	</li>
-
-	<li id='type' style='display:none;'>
-		<label for='specify_type'> Specify type <span class='man'>*</span> </label>
-		<input type='text' class='mandatory textfield' id='specify_type' />
-	</li>
-	
-
-	<li>
-		<label for='citizenship'> Citizenship </label>
-		<select class='select mandatory' id='citizenship'>
-			<option></option>
-			<option>Canadian</option>
-			<option>Other</option>	
-		</select>		
-	</li>
-	
-	<li id='citi' style='display:none;'>
-		<label for='specify_citi'> Specify citizenship <span class='man'>*</span> </label>
-		<input type='text' class='mandatory textfield' id='specify_citi' />
-	</li>
-
-	<li>
-		<label for='passportNo'> Passwort Number <span class='man'>*</span> </label>
-		<input type='text' class='mandatory textfield' id='passportNo' />
-	</li>
-	
-
-	<li>
-		<label for='passportExpiryDate'> Passport Expiry Date <span class='man'>*</span> </label>
-		<input type='date' class='mandatory date' id='passportExpiryDate' />
-	</li>
-	
-
-	<li>
-		<label for='status_country'> Status in country </label>
-		<select class='select mandatory' id='status_country'>
-			<option></option>
-			<option>Student</option>
-			<option>On Business</option>	
-			<option>Tourist</option>
-			<option>Other</option>	
-		</select>
-	</li>
-
-	<li id='status' style='display:none;'>
-		<label for='specify_status'> Specify status <span class='man'>*</span> </label>
-		<input type='text' class='mandatory textfield' id='specify_status' />
-	</li>
-	
-	<li>
-		<label for='travel_insurance' class='mandatory'> Do you have travel insurance? <span class='man'>*</span> </label>
-		<span class='mandatory'>
-			<span><input type='radio' class='yes' name='ti' id='travel_insurance' value='1' />Yes</span>
-			<span><input type='radio' class='no' name='ti' id='travel_insurance' value='0' />No</span>
+		<label for='pol'> Police Report attached <span class='man'>*</span> </label>
+		<span class='mandatory' style='float:left;'>
+		  <span><input type='radio' name='police' id='pol' value='1' />Yes</span>
+		  <span><input type='radio' name='police' id='pol' value='0' />No</span>
 		</span>
 	</li>
 
-	<li>
-		<label for='addr'> Mailing address (Canadian) <span class='man'>*</span> </label>
-		<textarea class='mandatory' cols='34' rows='5'></textarea>
-	</li>
-	
-</ul>
 
-<ul class='col2'>
-	
+	</ul>
+
+	<ul class='col2'>
 
 	<li>
-		<label for='addr'> Mailing address (Outside Canada), if applicable </label>
-		<textarea cols='34' rows='5'></textarea>
-	</li>
-	
-	<li>
-		<label for='payable'> Cheque payable to <span class='man'>*</span> </label>
-		<input type='text' class='mandatory textfield' id='payable' />
-	</li>
-
-	<li>
-		<label for='phone1'> Tel.No.(home) <span class='man'>*</span> </label>
-		<input type='text' class='mandatory textfield' id='phone1' />
+		<label for='pol'> Have you ever applied for financial assistance 
+			from the victims fund before?<span class='man'>*</span> </label>
+		<span style='float:left;'>
+		  <span><input type='radio' name='prev' id='prevf1' value='1' />Yes</span>
+		  <span><input type='radio' name='prev' id='prevf' value='0' />No</span>
+		</span><br>
 	</li>
 
-	<li>
-		<label for='phone2'> Tel.No.(office)</label>
-		<input type='text' class='mandatory textfield' id='phone2' />
+	<li id='prev_funding_amt' style='display:none;'>
+		<label for='prevAmt'> Previous amount received     $ <span class='man'>*</span></label>
+		<span><input type='text' class='mandatory textfield' id='prevAmt' /></span>
 	</li>
-	
-	<li>
-		<label for='phone3'> Cell phone </label>
-		<input type='text' class='mandatory textfield' id='phone3' />
+
+	<li id='prev_funding_date' style='display:none;'>
+		<label for='prevAppDate'> Date of previous application <span class='man'>*</span> </label>
+		<input type='date' class='mandatory date' id='prevAppDate' /><br>
 	</li>
 
 	<li>
-		<label for='phone4'> Fax </label>
-		<input type='text' class='mandatory textfield' id='phone4' />
+	<p>
+	<strong style='float:left'>If this request is to attend court proceedings please provide details:</strong><br><br><p>
+
+	<label for='where'> Where * </label>
+	<input type='text' class='textfield' id='where' />
+	</li>
+	<li>
+	<label for='when'> When * </label>
+	<input type='date' class='date' id='when' />
 	</li>
 
 	<li>
-		<label for='phone5'> Alternate </label>
-		<input type='text' class='mandatory textfield' id='phone5' />
+	<label for='duration'> Duration of proceedings </label>
+	<input type='text' class='textfield' id='duration' />
 	</li>
 
+	<!-- <li>
+		<strong>In your own words provide a detailed account of what happened:</strong> 
+		<br><br>
+		<textarea class='mandatory' cols='68' rows='15'></textarea>
+	</li> -->
+
+
+
+	</ul>
+
+
+	</fieldset>
+
+	<fieldset>
+	<legend>In your own words provide a detailed account of what happened</legend>
+	<textarea class='mandatory' style='width:100%' rows='15'></textarea>
+
+	</fieldset><br>
+
+
+
+	<fieldset>
+	<legend>Provide a detailed description of what your expenses are</legend>
+	<textarea class='mandatory' style='width:100%' rows='15'></textarea>
+	<br>
+	</fieldset><br>
+
+
+	<fieldset>
+
+	<legend>Consent and Submission</legend>
+	<ul style='margin-top:-20px'>
 	<li>
-		<label for='messages'> Can messages be left? <span class='man'>*</span> </label>
-		<span class='mandatory'>
-			<span><input type='radio' name='message' id='msg' value='1' />Yes</span>
-			<span><input type='radio' name='message' id='msg' value='0' />No</span>
-		</span>
+		<span class='mandatory' style='width:10%'>
+			<input type='radio' name='nov' id='consent' value='1' />I agree that Justice Canada can share the information from this application with the Department of Foreign Affairs Canada</span>
 	</li>
-	
-</ul>
+	</ul>
 
+	</fieldset>
 
-</fieldset>
+	<p align='center' style='margin-top:-20px'><input type="submit" value="Submit">&nbsp;
+	<input type="reset" value="Reset" onClick="window.location.reload()"></p>
 
-<fieldset>
-	<legend>Nature of Victimization</legend>
+	</form>
 
-<ul>
-<li>
-	<strong>Victimization Type <span class='man'>*</span></strong><br>
-	<span class='mtl_radio_mandatory'>
-		<span><input type='radio' name='nov' id='nov1' value='0' />Homicide</span><br>
-		<span><input type='radio' name='nov' id='nov2' value='1' />Sexual Assault</span><br>
-		<span><input type='radio' name='nov' id='nov3' value='2' />Aggravated sexual assault</span><br>
-		<span><input type='radio' name='nov' id='nov4' value='3' />Assault with serious personal injury</span><br>
-		<span><input type='radio' name='nov' id='nov5' value='4' />Assault with serious peronal violence against a child</span>	
-	</span>
-</li>
-
-<li>
-	<label for='locOffence'> Location of Offence (city / country) <span class='man'>*</span> </label>
-	<input type='text' class='mandatory textfield' id='locOffence' />
-</li>
-
-<li>
-	<label for='offenceDate'> Date offence occurred <span class='man'>*</span> </label>
-	<input type='date' class='mandatory date' id='offenceDate' />
-</li>
-
-<li>
-	<label for='pol'> Police Report attached <span class='man'>*</span> </label>
-	<span><input type='radio' name='police' id='pol' value='1' />Yes</span>
-	<span><input type='radio' name='police' id='pol' value='0' />No</span>
-</li>
-
-<li>
-	<label for='prevAmt'> Previous amount received     $</label>
-	<span><input type='text' class='mandatory textfield' id='prevAmt' /></span>
-</li>
-
-<li>
-	<label for='prevAppDate'> Date of previous application <span class='man'>*</span> </label>
-	<input type='date' class='mandatory date' id='prevAppDate' />
-</li>
-
-<li>
-	<label for='couns'> <span class='man'>*</span> If this request is for professional counselling, is counsellor provincially designated by Victim Services? </label>
-	<span><input type='radio' name='counselling' id='couns' value='1' />Yes</span>
-	<span><input type='radio' name='counselling' id='couns' value='0' />No</span>
-</li>
-
-</ul>
-
-<ul class='col2'>
-<li>
-<strong>If this request is to attend court proceedings please provide details:</strong><br><br>
-<label for='where'> Where * </label>
-<input type='text' class='mandatory textfield' id='where' />
-</li>
-<li>
-<label for='when'> When * </label>
-<input type='date' class='mandatory date' id='when' />
-</li>
-
-<li>
-<label for='duration'> Duration of proceedings </label>
-<input type='text' class='mandatory textfield' id='duration' />
-</li>
-
-<li>
-	<strong>In your own words provide a detailed account of what happened:</strong> 
-	<br><br>
-	<textarea cols='68' rows='15'></textarea>
-</li>
-
-
-
-</ul>
-
-
-</fieldset>
-
-
-<fieldset>
-
-<legend>Consent and Submission</legend>
-<ul style='margin-top:-20px'>
-<li>
-	<span style='width:10%'><input type='radio' name='nov' id='consent' value='1' />I agree that Justice Canada can share the information from this application with the Department of Foreign Affairs Canada</span>
-</li>
-</ul>
-</fieldset>
-<p align='center' style='margin-top:-20px'><input type="submit" value="Submit">&nbsp;
-<input type="reset" value="Reset"></p>
-
-</form>
+	</div>
 
 </div>
 
-<script type="text/javascript">
+</body>
 
+<script type="text/javascript">
+//console.profile('test');
 	var $tdt = document.getElementById("tdt");
 	var $citizenship = document.getElementById("citizenship");
 	var $status = document.getElementById("status_country")
+	var $support_type = document.getElementById("vs1")
+	var $support_type1 = document.getElementById("vs")
+	var $prev_funding1 = document.getElementById("prevf1")
+	var $prev_funding = document.getElementById("prevf")
+
+	$prev_funding1.onchange = function() {
+		activate_prev_funding(this);
+	}
+	$prev_funding.onchange = function() {
+		activate_prev_funding($prev_funding1);
+	}
+
+	function activate_prev_funding(element) {
+		var container = document.getElementById("prev_funding_amt")
+		var container1 = document.getElementById("prev_funding_date")
+		
+		if (element.checked == true) {
+			container.style.display = 'block'
+			container1.style.display = 'block'
+			
+		}
+		else {			
+			container.style.display = 'none'
+			container1.style.display = 'none'			
+		}
+	}
+
+
+
+	$support_type.onchange = function() {
+		activate_specify_support(this);
+	}
+	$support_type1.onchange = function() {
+		activate_specify_support($support_type);
+	}
+
+	function activate_specify_support(element) {
+		var container = document.getElementById("type_support")
+		
+		if (element.checked == true) {
+			container.style.display = 'block'
+			
+		}
+		else {			
+			container.style.display = 'none'			
+		}
+	}
+
+	
 
 	$tdt.onchange=function() {
 		var container = document.getElementById("type")
@@ -441,9 +600,12 @@ victimized abroad</h2>
 	    var inputs = document.getElementsByTagName("input");
 	    var spans = document.getElementsByTagName("span");
 	    var textareas = document.getElementsByTagName("textarea");
+	    var span_vt = document.getElementById("vf_type");
+	    var span_single = document.getElementById("consent_container");
 	    
 
 	    var found = [];
+	    var arr = []
 
 	    for(var i=0, len=inputs.length; i<len; i++){
 	       if(inputs[i].className.substr(0,9)=="mandatory"){                       
@@ -461,17 +623,92 @@ victimized abroad</h2>
 	    for(var i=0, len=spans.length; i<len; i++){
 	    
 	       if(spans[i].className.substr(0,9)=="mandatory" ){  	       	
-	    	var radios = spans[i].getElementsByTagName("input");	   		       
-		       	 if (!radios[0].checked && !radios[1].checked ) {	            	            	
-	            	  spans[i].style.border = "2px solid #ff0000";	            	             	
-	            	  found.push(spans[i]);
-	        	 } else {
-	        		spans[i].className = "mandatory"
-	        		spans[i].style.border  = "transparent";	            	
-	        	 }	        
-           	} 
+	    	
+	    	var radios = spans[i].getElementsByTagName("input");
+		    	//if (radios.length != 1) {
+	    	var total = 0
+	    	
+		    	for (var x=0; x<radios.length; x++) {	   		       
+
+			       	 if (radios[x].checked == false) {	
+			       	 	// spans[i].style.border = "2px solid #ff0000";
+		            	found.push[x]	
+		            	total += 1        	  				        			
+				     } 
+
+
+		        } 
+
+			     if (total == radios.length ) {
+			     	spans[i].style.border = "2px solid #ff0000";
+			     } else {
+			 
+			     	 spans[i].style.border  = "transparent";
+			 
+			     }		      
+
+           	
+           	}
+
            
-	    }	   
+	    }
+
+	    // for(var i=0, len=spans.length; i<len; i++){
+	    
+	    //    if(spans[i].className.substr(0,9)=="mandatory" ){  	       	
+	    	
+	    // 	var radios = spans[i].getElementsByTagName("input");
+		   //  	//if (radios.length != 1) {
+			  //   	for (var x=0; x<radios.length; x++) {	   		       
+				 //       	 if (!radios[x].checked) {	            	            	
+			  //           	  spans[i].style.border = "2px solid #ff0000";	            	             	
+			  //           	  found.push(spans[i]);
+			  //       	  } //else {
+			  //       		// spans[i].className = "mandatory"
+			  //       		// spans[i].style.border  = "transparent";	            	
+			  //       	 // }	
+			  //       } 
+			  //  // }
+
+     //       	} else {
+     //       		//do something todo
+     //       	}
+
+           
+	    // }
+
+	    // for(var i=0, len=span_single.length; i<len; i++){
+	    
+	       	       	
+	    // 	var radios = span_single[i].getElementsByTagName("input");	   		       
+	    //    	 if (!radios[0].checked) {	            	            	
+	    //     	  span_single[i].style.border = "2px solid #ff0000";	            	             	
+	    //     	  found.push(span_single[i]);
+	    // 	 } else {
+	    // 		span_single[i].className = "mandatory"
+	    // 		span_single[i].style.border  = "transparent";	            	
+	    // 	 }	        
+           
+           
+	    // }
+
+	    // for(var i=0, len=span_vt.length; i<len; i++){
+	    
+	    //    if(span_vt[i].className.substr(0,9)=="mandatory" ){  	       	
+	    // 	var radios = span_vt[i].getElementsByTagName("input");	   		       
+		   //     	 if (!radios[0].checked && !radios[1].checked && !radios[2].checked
+		   //     	 && !radios[3].checked && !radios[4].checked ) {	            	            	
+	    //         	  span_vt[i].style.border = "2px solid #ff0000";	            	             	
+	    //         	  found.push(span_vt[i]);
+	    //     	 } else {
+	    //     		span_vt[i].className = "mandatory"
+	    //     		span_vt[i].style.border  = "transparent";	            	
+	    //     	 }	        
+     //       	} 
+           
+	    // }
+
+	    	   
 
 	    for(var i=0, len=textareas.length; i<len; i++){
 	       if(textareas[i].className.substr(0,9)=="mandatory" ){                       
@@ -487,14 +724,14 @@ victimized abroad</h2>
 	    }
 	   
 	    
-	    alert(found.length + " elements found");
+	   // alert(found.length + " elements found");
 	     // alert(document.getElementById("surname").className.substr(0,9))
 	    if (found.length > 0) {
 			return false;
 		} 
   }
 
-
+//console.profileEnd();
 
 
 </script>

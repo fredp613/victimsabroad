@@ -242,7 +242,7 @@ select {
 
 		<li id='type_support' style='display:none;'>
 			<label for='support_type'> What is your relationship to the victim?<span class='man'>*</span> </label>
-			<input type='text' class='mandatory textfield' id='support_type' />
+			<input type='text' class='textfield' id='support_type' />
 		</li>
 
 		<li>
@@ -266,12 +266,12 @@ select {
 		
 		<li id='citi' style='display:none;'>
 			<label for='specify_citi'> Specify citizenship <span class='man'>*</span> </label>
-			<input type='text' class='mandatory textfield' id='specify_citi' />
+			<input type='text' class='textfield' id='specify_citi' />
 		</li>
 
 		<li>
 			<label for='tdt'> Travel Document Type</label> 
-			<select class='select mandatory' id='tdt'>
+			<select class='select' id='tdt'>
 				<option></option>
 				<option>Passport</option>
 				<option>Birth Certificate</option>
@@ -282,19 +282,20 @@ select {
 
 		<li id='type' style='display:none;'>
 			<label for='specify_type'> Specify type <span class='man'>*</span> </label>
-			<input type='text' class='mandatory textfield' id='specify_type' />
+			<input type='text' class='textfield' id='specify_type' />
+
 		</li>
 		
 
 		<li style='display:none;'>
 			<label for='passportNo'> Passport Number <span class='man'>*</span> </label>
-			<input type='text' class='mandatory textfield' id='passportNo' />
+			<input type='text' class='textfield' id='passportNo' />
 		</li>
 		
 
 		<li style='display:none;'>
 			<label for='passportExpiryDate'> Passport Expiry Date <span class='man'>*</span> </label>
-			<input type='date' class='mandatory date' id='passportExpiryDate' />
+			<input type='date' class='date' id='passportExpiryDate' />
 		</li>
 		
 
@@ -311,7 +312,7 @@ select {
 
 		<li id='status' style='display:none;'>
 			<label for='specify_status'> Specify status <span class='man'>*</span> </label>
-			<input type='text' class='mandatory textfield' id='specify_status' />
+			<input type='text' class='textfield' id='specify_status' />
 		</li>
 		
 		<li>
@@ -422,12 +423,12 @@ select {
 
 	<li id='prev_funding_amt' style='display:none;'>
 		<label for='prevAmt'> Previous amount received     $ <span class='man'>*</span></label>
-		<span><input type='text' class='mandatory textfield' id='prevAmt' /></span>
+		<span><input type='text' class='textfield' id='prevAppAmt' /></span>
 	</li>
 
 	<li id='prev_funding_date' style='display:none;'>
 		<label for='prevAppDate'> Date of previous application <span class='man'>*</span> </label>
-		<input type='date' class='mandatory date' id='prevAppDate' /><br>
+		<input type='date' class='date' id='prevAppDate' /><br>
 	</li>
 
 	<li>
@@ -446,14 +447,6 @@ select {
 	<label for='duration'> Duration of proceedings </label>
 	<input type='text' class='textfield' id='duration' />
 	</li>
-
-	<!-- <li>
-		<strong>In your own words provide a detailed account of what happened:</strong> 
-		<br><br>
-		<textarea class='mandatory' cols='68' rows='15'></textarea>
-	</li> -->
-
-
 
 	</ul>
 
@@ -481,7 +474,7 @@ select {
 	<ul style='margin-top:-20px'>
 	<li>
 		<span class='mandatory' style='width:10%'>
-			<input type='radio' name='nov' id='consent' value='1' />I agree that Justice Canada can share the information from this application with the Department of Foreign Affairs Canada</span>
+			<input type='radio' name='cons' id='consent' value='1' />I agree that Justice Canada can share the information from this application with the Department of Foreign Affairs Canada</span>
 	</li>
 	</ul>
 
@@ -518,15 +511,24 @@ select {
 	function activate_prev_funding(element) {
 		var container = document.getElementById("prev_funding_amt")
 		var container1 = document.getElementById("prev_funding_date")
+		var txtField = document.getElementById("prevAppAmt");
+		var dateField = document.getElementById("prevAppDate");
 		
 		if (element.checked == true) {
 			container.style.display = 'block'
 			container1.style.display = 'block'
+			txtField.className = "mandatory textfield"
+			dateField.className = "mandatory date"
+			
 			
 		}
 		else {			
 			container.style.display = 'none'
-			container1.style.display = 'none'			
+			container1.style.display = 'none'		
+			txtField.className = "textfield"
+			dateField.className = "date"
+				
+
 		}
 	}
 
@@ -541,13 +543,17 @@ select {
 
 	function activate_specify_support(element) {
 		var container = document.getElementById("type_support")
+		var txtField = document.getElementById("support_type")
 		
 		if (element.checked == true) {
 			container.style.display = 'block'
+			txtField.className = "mandatory textfield";
+
 			
 		}
 		else {			
-			container.style.display = 'none'			
+			container.style.display = 'none'
+			txtField.className = "textfield";			
 		}
 	}
 
@@ -569,14 +575,17 @@ select {
 
 	$citizenship.onchange=function() {
 		var container = document.getElementById("citi")
-		
+		var selField = document.getElementById("tdt")
 		if (this.value == "Other") {
 			container.style.display = 'block'
+			selField.className = "mandatory"
+
 			
 		}
 		else {
 			if (document.getElementById("specify_citi")) {
 				container.style.display = 'none'
+				selField.className = ""
 			}
 		}
 	}
@@ -653,61 +662,6 @@ select {
            
 	    }
 
-	    // for(var i=0, len=spans.length; i<len; i++){
-	    
-	    //    if(spans[i].className.substr(0,9)=="mandatory" ){  	       	
-	    	
-	    // 	var radios = spans[i].getElementsByTagName("input");
-		   //  	//if (radios.length != 1) {
-			  //   	for (var x=0; x<radios.length; x++) {	   		       
-				 //       	 if (!radios[x].checked) {	            	            	
-			  //           	  spans[i].style.border = "2px solid #ff0000";	            	             	
-			  //           	  found.push(spans[i]);
-			  //       	  } //else {
-			  //       		// spans[i].className = "mandatory"
-			  //       		// spans[i].style.border  = "transparent";	            	
-			  //       	 // }	
-			  //       } 
-			  //  // }
-
-     //       	} else {
-     //       		//do something todo
-     //       	}
-
-           
-	    // }
-
-	    // for(var i=0, len=span_single.length; i<len; i++){
-	    
-	       	       	
-	    // 	var radios = span_single[i].getElementsByTagName("input");	   		       
-	    //    	 if (!radios[0].checked) {	            	            	
-	    //     	  span_single[i].style.border = "2px solid #ff0000";	            	             	
-	    //     	  found.push(span_single[i]);
-	    // 	 } else {
-	    // 		span_single[i].className = "mandatory"
-	    // 		span_single[i].style.border  = "transparent";	            	
-	    // 	 }	        
-           
-           
-	    // }
-
-	    // for(var i=0, len=span_vt.length; i<len; i++){
-	    
-	    //    if(span_vt[i].className.substr(0,9)=="mandatory" ){  	       	
-	    // 	var radios = span_vt[i].getElementsByTagName("input");	   		       
-		   //     	 if (!radios[0].checked && !radios[1].checked && !radios[2].checked
-		   //     	 && !radios[3].checked && !radios[4].checked ) {	            	            	
-	    //         	  span_vt[i].style.border = "2px solid #ff0000";	            	             	
-	    //         	  found.push(span_vt[i]);
-	    //     	 } else {
-	    //     		span_vt[i].className = "mandatory"
-	    //     		span_vt[i].style.border  = "transparent";	            	
-	    //     	 }	        
-     //       	} 
-           
-	    // }
-
 	    	   
 
 	    for(var i=0, len=textareas.length; i<len; i++){
@@ -722,10 +676,7 @@ select {
 
            }
 	    }
-	   
-	    
-	   // alert(found.length + " elements found");
-	     // alert(document.getElementById("surname").className.substr(0,9))
+
 	    if (found.length > 0) {
 			return false;
 		} 

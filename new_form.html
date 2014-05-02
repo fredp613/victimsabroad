@@ -184,7 +184,7 @@ select {
 
 .col1 {
 	
-	padding-right: 5%;
+	padding-right: 3%;
 	float:left;
 }
 
@@ -234,7 +234,7 @@ select {
 
 		<li>		
 			<label for='vs'>I am applying as the <span class='man'>*</span></label>
-			<span class='mandatory' style='float:left;'>
+			<span class='mandatory' style='float:left;' tabindex='1'>
 			  <span><input type='radio' name='victim_support' id='vs' value='0' />victim</span><br>
 			  <span><input type='radio' name='victim_support' id='vs1' value='1' />support person for the victim</span>
 			</span><br>
@@ -317,7 +317,7 @@ select {
 		
 		<li>
 			<label for='travel_insurance' class='mandatory'> Do you have travel insurance? <span class='man'>*</span> </label>
-			<span class='mandatory' style='float:left;'>
+			<span class='mandatory' style='float:left;' tabindex='13'>
 				<span><input type='radio' class='yes' name='ti' id='travel_insurance' value='1' />Yes</span>
 				<span><input type='radio' class='no' name='ti' id='travel_insurance' value='0' />No</span>
 			</span>
@@ -341,6 +341,11 @@ select {
 		<li>
 			<label for='payable'> Cheque payable to <span class='man'>*</span> </label>
 			<input type='text' class='mandatory textfield' id='payable' />
+		</li>
+
+		<li id='email_container'>
+			<label for='email'> Email </label>
+			<input type='text' class='emailfield' id='email' />
 		</li>
 
 		<li>
@@ -380,7 +385,7 @@ select {
 	<ul class='col1'>
 	<li>
 		<strong>Victimization Type <span class='man'>*</span></strong><br><br>
-		<span id='vf_type' class='mandatory' style='float:left;'>
+		<span id='vf_type' class='mandatory' style='float:left;' tabindex='23'>
 			<span><input type='radio' name='nov' id='nov1' value='0' />Homicide</span><br>
 			<span><input type='radio' name='nov' id='nov2' value='1' />Sexual Assault</span><br>
 			<span><input type='radio' name='nov' id='nov3' value='2' />Aggravated sexual assault</span><br>
@@ -399,13 +404,7 @@ select {
 		<input type='date' class='mandatory date' id='offenceDate' />
 	</li>
 
-	<li>
-		<label for='pol'> Police Report attached <span class='man'>*</span> </label>
-		<span class='mandatory' style='float:left;'>
-		  <span><input type='radio' name='police' id='pol' value='1' />Yes</span>
-		  <span><input type='radio' name='police' id='pol' value='0' />No</span>
-		</span>
-	</li>
+	
 
 
 	</ul>
@@ -413,9 +412,17 @@ select {
 	<ul class='col2'>
 
 	<li>
+	<label for='pol'> Police Report attached <span class='man'>*</span> </label>
+	<span class='mandatory' style='float:left;' tabindex='26'>
+	  <span><input type='radio' name='police' id='pol' value='1' />Yes</span>
+	  <span><input type='radio' name='police' id='pol' value='0' />No</span>
+	</span>
+	</li>
+
+	<li>
 		<label for='pol'> Have you ever applied for financial assistance 
 			from the victims fund before?<span class='man'>*</span> </label>
-		<span style='float:left;'>
+		<span style='float:left;' tabindex='27'>
 		  <span><input type='radio' name='prev' id='prevf1' value='1' />Yes</span>
 		  <span><input type='radio' name='prev' id='prevf' value='0' />No</span>
 		</span><br>
@@ -432,20 +439,27 @@ select {
 	</li>
 
 	<li>
-	<p>
-	<strong style='float:left'>If this request is to attend court proceedings please provide details:</strong><br><br><p>
-
-	<label for='where'> Where * </label>
-	<input type='text' class='textfield' id='where' />
-	</li>
-	<li>
-	<label for='when'> When * </label>
-	<input type='date' class='date' id='when' />
+	<br>		
+	<label for='court'> Is this a request to attend court proceedings? <span class='man'>*</span> </label>
+	<span class='mandatory' style='float:left;' tabindex='30'>
+	  <span><input type='radio' name='court' id='cp1' value='1' />Yes</span>
+	  <span><input type='radio' name='court' id='cp' value='0' />No</span>
+	</span>
 	</li>
 
-	<li>
-	<label for='duration'> Duration of proceedings </label>
-	<input type='text' class='textfield' id='duration' />
+	<li id='loc_proc_container' style='display:none;'>
+	<label for='loc_proc'> Location of the proceeding<span class='man'>*</span> </label>
+	<input type='text' class='textfield' id='loc_proc' />
+	</li>
+
+	<li id='date_proc_container' style='display:none;'>
+	<label for='date_proc'> Date of proceeding<span class='man'>*</span> </label>
+	<input type='date' class='date' id='date_proc' />
+	</li>
+
+	<li id='dur_proc_container' style='display:none;'>
+	<label for='dur_proc'> Duration of proceedings<span class='man'>*</span> </label>
+	<input type='text' class='textfield' id='dur_proc' />
 	</li>
 
 	</ul>
@@ -473,7 +487,7 @@ select {
 	<legend>Consent and Submission</legend>
 	<ul style='margin-top:-20px'>
 	<li>
-		<span class='mandatory' style='width:10%'>
+		<span class='mandatory' style='width:10%' tabindex='36'>
 			<input type='radio' name='cons' id='consent' value='1' />I agree that Justice Canada can share the information from this application with the Department of Foreign Affairs Canada</span>
 	</li>
 	</ul>
@@ -500,6 +514,8 @@ select {
 	var $support_type1 = document.getElementById("vs")
 	var $prev_funding1 = document.getElementById("prevf1")
 	var $prev_funding = document.getElementById("prevf")
+	var $proc = document.getElementById("cp");
+	var $proc1 = document.getElementById("cp1");
 
 	$prev_funding1.onchange = function() {
 		activate_prev_funding(this);
@@ -529,6 +545,39 @@ select {
 			dateField.className = "date"
 				
 
+		}
+	}
+
+	$proc1.onchange = function() {
+		activate_proc(this);
+	}
+	$proc.onchange = function() {
+		activate_proc($proc1);
+	}
+
+	function activate_proc(element) {
+		var container = document.getElementById("loc_proc_container")
+		var container1 = document.getElementById("date_proc_container")
+		var container2 = document.getElementById("dur_proc_container")
+		var txtField = document.getElementById("loc_proc");
+		var txtField1 = document.getElementById("dur_proc");
+		var dateField = document.getElementById("date_proc");
+		
+		if (element.checked == true) {
+			container.style.display = 'block'
+			container1.style.display = 'block'
+			container2.style.display = 'block'
+			txtField.className = "mandatory textfield"
+			txtField1.className = "mandatory textfield"
+			dateField.className = "mandatory date"
+		}
+		else {			
+			container.style.display = 'none'
+			container1.style.display = 'none'
+			container2.style.display = 'none'
+			txtField.className = "textfield"
+			txtField1.className = "textfield"
+			dateField.className = "date"			
 		}
 	}
 
@@ -611,19 +660,25 @@ select {
 	    var textareas = document.getElementsByTagName("textarea");
 	    var span_vt = document.getElementById("vf_type");
 	    var span_single = document.getElementById("consent_container");
+	    var email = document.getElementById("email");
 	    
 
 	    var found = [];
-	    var arr = []
+	    var clean = []
 
 	    for(var i=0, len=inputs.length; i<len; i++){
 	       if(inputs[i].className.substr(0,9)=="mandatory"){                       
            	 if (inputs[i].value == "") {	            	
             	inputs[i].style.border = "2px solid #ff0000";
+            	inputs[i].style.border = 'radius:5px;';
+            	inputs[i].className = "mandatory textfield error";            
             	found.push(inputs[i]);
+            	
         	 } else {
-        		inputs[i].className = "mandatory textfield"
+        		inputs[i].className = "textfield"
         		inputs[i].style.border = "1px solid #808080";	            	
+        		
+        		// found.splice(1,1);
         	 }        
 
            }
@@ -639,9 +694,7 @@ select {
 	    	
 		    	for (var x=0; x<radios.length; x++) {	   		       
 
-			       	 if (radios[x].checked == false) {	
-			       	 	// spans[i].style.border = "2px solid #ff0000";
-		            	found.push[x]	
+			       	 if (radios[x].checked == false) {				       	 			            
 		            	total += 1        	  				        			
 				     } 
 
@@ -649,11 +702,15 @@ select {
 		        } 
 
 			     if (total == radios.length ) {
+			     	found.push(spans[i])
 			     	spans[i].style.border = "2px solid #ff0000";
+			     	spans[i].style.border = 'radius:5px;';
+			     	spans[i].className = "mandatory error";
 			     } else {
-			 
-			     	 spans[i].style.border  = "transparent";
-			 
+			     	// found.splice(1,1);
+			     	spans[i].style.border  = "transparent";			 
+			     	spans[i].className = "mandatory";
+			     	
 			     }		      
 
            	
@@ -661,26 +718,74 @@ select {
 
            
 	    }
-
-	    	   
-
+	    	  
 	    for(var i=0, len=textareas.length; i<len; i++){
 	       if(textareas[i].className.substr(0,9)=="mandatory" ){                       
            	 if (textareas[i].value == "") {	            	
             	textareas[i].style.border = "2px solid #ff0000";
+            	textareas[i].style.border = 'radius:5px;';
+            	textareas[i].className = "mandatory error";
             	found.push(textareas[i]);
+            	
         	 } else {
         		textareas[i].className = "mandatory"
-        		textareas[i].style.border = "1px solid #808080";	            	
+        		textareas[i].style.border = "1px solid #808080";        		
+        		// found.splice(1,1);           	
         	 }        
 
            }
 	    }
 
+	    var container = document.getElementById("email_container")
+	    if (email.value != "" && validateEmail(email.value) == false) {
+	    	found.push(email);
+	    		    	
+	    	var errorMsg = document.createElement("div");
+	    	errorMsg.setAttribute('id', 'invalid_email');
+	    	errorMsg.innerHTML = "Please enter a valid email address";
+	    	// errorMsg.style.margin = '0 0 0 0'
+	    	errorMsg.style.clear = 'both';
+	    	errorMsg.style.float = 'right';
+	    	// errorMsg.style.clear = 'both';
+	    	email.className = "mandatory error";
+	    	container.appendChild(errorMsg);
+	    } 
+	    else {
+	    	error = document.getElementById("invalid_email");
+	    	email.className = "mandatory";	    	
+	    	
+	    	if (error) {	    		
+	    		container.removeChild(error);
+	    	}
+	    }
+
+
 	    if (found.length > 0) {
-			return false;
-		} 
+			//alert(found.length)
+			alert(found.length)
+			found[0].focus();			
+			found = [];
+			return false;			
+		}
+
+
   }
+
+
+  function validateEmail(email) {
+  	var atpos = email.indexOf("@");
+  	var dotpos = email.indexOf(".");
+
+  	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
+  		return false
+  	} else {
+  		return true
+  	}
+  }
+
+  // Checking the given E-mail address is correct 
+
+
 
 //console.profileEnd();
 

@@ -344,8 +344,8 @@ select {
 		</li>
 
 		<li id='email_container'>
-			<label for='email'> Email </label>
-			<input type='text' class='emailfield' id='email' />
+			<label for='email'> Email <span class='man'>*</span> </label>
+			<input type='text' class='mandatory emailfield' id='email' />
 		</li>
 
 		<li>
@@ -668,7 +668,7 @@ select {
 
 	    for(var i=0, len=inputs.length; i<len; i++){
 	       if(inputs[i].className.substr(0,9)=="mandatory"){                       
-           	 if (inputs[i].value == "") {	            	
+           	 if (inputs[i].value == "" || validateEmail(inputs[i]) == false) {	            	
             	inputs[i].style.border = "2px solid #ff0000";
             	inputs[i].style.border = 'radius:5px;';
             	inputs[i].className = "mandatory textfield error";            
@@ -737,7 +737,7 @@ select {
 	    }
 
 	    var container = document.getElementById("email_container")
-	    if (email.value != "" && validateEmail(email.value) == false) {
+	    if (email.value != "" && validateEmail(email) == false) {
 	    	found.push(email);
 	    		    	
 	    	var errorMsg = document.createElement("div");
@@ -747,13 +747,14 @@ select {
 	    	errorMsg.style.clear = 'both';
 	    	errorMsg.style.float = 'right';
 	    	// errorMsg.style.clear = 'both';
-	    	email.className = "mandatory error";
+	    	email.className = "mandatory error emailfield";
+	    	// email.style.border = "1px solid #808080";
 	    	container.appendChild(errorMsg);
 	    } 
 	    else {
 	    	error = document.getElementById("invalid_email");
-	    	email.className = "mandatory";	    	
-	    	
+	    	email.className = "mandatory emailfield";	    	
+	    	// email.style.border = "2px solid #ff0000";
 	    	if (error) {	    		
 	    		container.removeChild(error);
 	    	}
@@ -762,7 +763,7 @@ select {
 
 	    if (found.length > 0) {
 			//alert(found.length)
-			alert(found.length)
+			
 			found[0].focus();			
 			found = [];
 			return false;			
@@ -773,14 +774,19 @@ select {
 
 
   function validateEmail(email) {
-  	var atpos = email.indexOf("@");
-  	var dotpos = email.indexOf(".");
+  	if (email.id == "email") {
+  		var email_value = email.value
+	  	var atpos = email_value.indexOf("@");
+	  	var dotpos = email_value.indexOf(".");
 
-  	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
-  		return false
-  	} else {
-  		return true
-  	}
+	  	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email_value.length) {
+	  		return false
+	  	} else {
+	  		return true
+	  	}
+	  } else {
+		  	return true
+	  }
   }
 
   // Checking the given E-mail address is correct 

@@ -1,0 +1,744 @@
+
+<!-- #include virtual="/eng/includes/page-start.inc" -->
+	<!--#config timefmt="%Y-%m-%d"-->
+	<title>Projects Funding</title>
+	<meta name="dcterms.title" content="Department of Justice - Important Notices">
+	<meta name="dcterms.creator" content="Government of Canada, Department of Justice, Electronic Communications">
+	<meta name="dcterms.issued" content="2013-04-12" title="W3CDTF">
+	<meta name="dcterms.modified" content="2013-04-12" title="W3CDTF">
+	<meta name="description" content="Department of Justice Canada"s Internet site">
+	<meta name="dcterms.subject" content="justice, law, judicial system, legal system, legislation, statute, act, regulation, legislative process, amendment, canadian government" title="scheme">
+	<!-- #include virtual="/eng/includes/supporting-files.inc -->
+
+	<!-- CustomCSSStart -->  
+
+<style type="text/css">
+
+
+
+
+fieldset ul {
+  display: inline-block;
+  list-style: none;  
+  padding: 0;
+  float:left;
+  margin-right: 7%;
+
+  
+}
+
+
+fieldset li {
+
+ padding: 5% 0 5% 0;
+ 
+}
+
+fieldset li input {
+	/*margin:auto;*/
+}
+
+fieldset li label  {
+  width:210px;
+  float: left; 
+  /*margin:5px; */
+  
+}
+
+
+
+
+
+fieldset li input[type="text"]{
+  width: 250px;
+  height:25px;
+  float: left;	
+  border-radius: 5px;
+}
+
+fieldset li input[type="date"]{
+  width: 250px;
+  height:25px;
+  float: left;	
+  border-radius: 5px;
+}
+
+fieldset li input[type="radio"] {
+  /*width:25px;*/
+  /*float: right;*/
+  /*height: 20px;*/
+}
+
+fieldset textarea {
+	border-radius: 5px;
+}
+
+input[type="button"] {
+	color:white;
+	line-height: inherit;
+	text-decoration: none;
+	-webkit-transition: background-color 300ms ease-out;
+	background-color: #008CBA;
+	border: 0 solid #007295;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	cursor: pointer;
+	display: inline-block;
+	font-family: sans-serif;
+	font-size: 0.88889rem;
+	padding: 0.88889rem 1.77778rem 0.94444rem;
+	position:relative;
+	transition: background-color 330ms ease-out;
+}
+
+input[type="reset"] {
+	color:white;
+	line-height: inherit;
+	text-decoration: none;
+	-webkit-transition: background-color 300ms ease-out;
+	background-color: #cc3333;
+	border: 0 solid #993333;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	cursor: pointer;
+	display: inline-block;
+	font-family: sans-serif;
+	font-size: 0.88889rem;
+	padding: 0.88889rem 1.77778rem 0.94444rem;
+	position:relative;
+	transition: background-color 330ms ease-out;
+}
+
+select {
+  border: 1px solid #ccc;
+  width: 250px;
+  height:25px;
+  float: left;
+}
+
+
+.col1 {
+	
+	padding-right: 3%;
+	float:left;
+}
+
+.col2 {
+	
+	margin:0 auto;	
+	float:left;
+
+}
+.man {
+	color:#ff0000;
+}
+
+
+
+@media (max-width: 1355px) {
+  .col2 {
+  	margin-left: 0;
+  }
+}
+</style>
+    
+	<!-- CustomCSSEnd -->  
+    
+<!-- #include virtual="/eng/includes/header-main.inc" -->
+	<!-- #include virtual="/eng/includes/mega-menu.inc" -->
+	<!-- HeaderEnd -->
+<!-- #include file="/eng/fund-fina/cj-jp/includes/breadcrumbs.inc"-->
+
+<!-- style -->
+
+<!--    
+<body background="/Users/fpearson/Downloads/img_main.jpg">
+-->
+
+<!-- #include virtual="/eng/includes/header-end.inc" -->
+	<div id="wb-main" role="main"><div id="wb-main-in">
+		<!-- MainContentStart -->
+
+
+<!-- JQUERY -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- JQUERY END -->
+
+<div id="body_container">
+	<div id="container">
+
+	<form id="form1" action="proces1.aspx" method="post" name="form1">
+
+	<h2 style="text-align:center">Application for Financial Assistance for Canadians
+	Victimized Abroad</h2><span class="man">* Denotes mandatory fields</span>
+
+	<fieldset>
+	  <legend><strong>Application type</strong></legend>
+	<ul>	
+	<li style="list-style:none;">		
+			<label for="vs"><span class="man">*</span>I am applying as the </label>
+			<span class="mandatory" style="float:left;" id="vtype" tabindex="1">
+			  <span><input type="radio" name="victim_support" id="vs" value="0" />victim</span><br>
+			  <span><input type="radio" name="victim_support" id="vs1" value="1" />support person for the victim</span>
+			</span><br>
+		</li>
+
+		<li id="type_support" style="display:none;">
+			<label for="support_type"><span class="man">*</span> What is your relationship to the victim? (i.e. parent, spouse etc.) </label>
+			<input type="text" class="textfield" id="support_type" name="support_type" />
+		</li>
+	</ul>
+	</fieldset>
+
+	<fieldset> 
+	<legend><strong>Personal and Payment Information</strong></legend>
+
+	<ul class="col1">	
+
+		<li>
+			<label for="salutation"> Salutation </label>
+			<select class="select" id="salutation" name="salutation">
+				<option value=""> </option>
+				<option vakue="Mr">Mr</option>
+				<option vakue="Ms">Ms</option>	
+				<option vakue="Mrs">Mrs</option>
+			</select>
+		</li>
+
+		<li>
+			<label for="surname"><span class="man">*</span> First Name  </label>
+			<input type="text" class="mandatory textfield" id="Firstname" name="Firstname" />
+		</li>
+
+		<li>
+			<label for="surname"><span class="man">*</span> Last Name  </label>
+			<input type="text" class="mandatory textfield" id="surname" name="surname" />
+		</li>
+
+		<li>
+			<label for="addr_canada"><span class="man">*</span> Mailing address (Canada)  </label>
+			<textarea id="addr_canada" class="mandatory" cols="32" rows="5" name="addr_canada"></textarea>
+		</li>
+			
+
+		<li>
+			<label for="addr_abroad"> Mailing address (Outside Canada), if applicable </label>
+			<textarea id="addr_abroad" cols="32" rows="5" name="addr_abroad"></textarea>
+		</li>
+
+		<li>
+			<label for="phone1"><span class="man">*</span> Tel.No.(main)  </label>
+			<input type="text" class="mandatory textfield" id="phone1" name="phone1" />
+		</li>
+
+		<li>
+			<label for="phone2"> Tel.No.(work)</label>
+			<input type="text" class="textfield" id="phone2" name="phone2" />
+		</li>
+		
+<!--		<li>
+			<label for="phone3"> Cell phone </label>
+			<input type="text" class="textfield" id="phone3" name="phone3" />
+		</li>-->
+
+		<li>
+			<label for="phone4"> Fax </label>
+			<input type="text" class="textfield" id="phone4" name="phone4" />
+		</li>
+
+<!--		<li>
+			<label for="phone5"> Alternate Phone </label>
+			<input type="text" class="textfield" id="phone5" name="phone5" />
+		</li>-->
+
+		<li id="email_container">
+			<label for="email"><span class="man">*</span> Email  </label>
+			<input type="text" class="mandatory emailfield" id="email" name="email" />
+		</li>
+
+		<li>
+			<label for="yrBirth"><span class="man">*</span> Year of birth (YYYY)  </label>
+			<input type="text" class="mandatory date" id="yrBirth" name="yrBirth" />
+		</li>
+
+		<li>
+			<label  class="mandatory"><span class="man">*</span> Do you have travel insurance?  </label>
+			<span class="mandatory" style="float:left;" tabindex="13">
+				<span><input type="radio" class="yes" name="ti" id="travel_insurance-yes" value="1" />Yes</span>
+				<span><input type="radio" class="no" name="ti" id="travel_insurance-no" value="0" />No</span>
+			</span>
+		</li>
+
+		<li>
+			<label class="mandatory"><span class="man">*</span> Do you have work insurance? </label>
+			<span id="work_insurance" class="mandatory" style="float:left;" tabindex="13">
+				<span><input type="radio" class="yes" name="wi" id="wi_1" value="1" />Yes</span>
+				<span><input type="radio" class="no" name="wi" id="wi_2" value="0" />No</span>
+			</span>
+		</li>
+		
+		<li id="coverage" style="display:none">
+			<label>Describe your coverage</label>
+			<textarea id="coverage_details" cols="32" rows="5" name="work_insurance_coverage"></textarea>	
+		</li>
+
+
+		<li>
+			<label for="passportNo"><span class="man">*</span>  Passport Number </label>
+			<input type="text" class="mandatory textfield" id="passportNo" name="passportNo" />
+		</li>
+		
+		<li>
+			<label for="passportExpiryDate"><span class="man">*</span> Passport Expiry Date</label>
+			<input type="text" class="mandatory date" id="passportExpiryDate" name="passportExpiryDate" />
+		</li>
+
+		<li>
+			<label for="other_travel"> If carrying other travel document, specify </label>
+			<textarea id="other_travel" cols="32" rows="5" name="other_travel"></textarea>
+		</li>
+
+<!--		<li>
+			<label for="citizenship"><span class="man">*</span>  Citizenship </label>
+			<select class="mandatory select" id="citizenship" name="citizenship">
+				<option></option>
+				<option>Canadian</option>
+				<option>Other</option>	
+			</select>		
+		</li>
+		
+		<li id="citi" style="display:none;">
+			<label for="specify_citi"><span class="man">*</span> Specify citizenship  </label>
+			<input type="text" class="textfield" id="specify_citi" name="specify_citi" />
+		</li>-->
+		
+		<li>
+			<label for="status_country"> Status in country where the crime occurred </label>
+			<select class="select mandatory" id="status_country" name="status_country">
+				<option value="0"> </option>
+				<option value="1">Student</option>
+				<option value="2">On Business</option>	
+				<option value="3">Tourist</option>
+				<option value="4">Other</option>	
+			</select>
+		</li>
+
+		<li id="status" style="display:none;">
+			<label for="specify_status"><span class="man">*</span>  Specify status </label>
+			<input type="text" class="textfield" id="specify_status" name="specify_status" />
+		</li>
+			
+		<li>
+			<label for="payable"><span class="man">*</span>  If considered for funding, cheque payable to </label>
+			<input type="text" class="mandatory textfield" id="payable" name="payable" />
+		</li>
+	</ul>
+
+
+	</fieldset>
+
+	<fieldset>
+		<legend><strong>Nature of Victimization</strong></legend>
+
+	<ul class="col1">
+	<li>
+		<span class="man">*</span> Victimization Type<br><br>
+		<span id="vf_type" class="mandatory" style="float:left;" tabindex="23">
+			<span><input type="radio" name="nov" id="nov1" value="0" />Homicide</span><br>
+			<span><input type="radio" name="nov" id="nov2" value="1" />Sexual Assault</span><br>
+			<span><input type="radio" name="nov" id="nov3" value="2" />Aggravated assault</span><br>
+			<span><input type="radio" name="nov" id="nov4" value="3" />Assault with serious personal violence, or threat of serious personal violence, including against a child</span><br>
+				
+		</span><br><br><br><br>
+	</li>
+
+	<li>
+		<label for="locOffence"><span class="man">*</span>  Location of crime (city / country)</label>
+		<input type="text" class="mandatory textfield" id="locOffence" name="locOffence" />
+	</li>
+
+	<li>
+		<label for="offenceDate"><span class="man">*</span>  Date of crime</label>
+		<input type="text" class="mandatory date" id="offenceDate" name="offenceDate" />
+	</li>
+       
+        <li>		
+	        <label for="consultate"><span class="man">*</span> Have you contacted the Canadian Embassy or Consulate to report the crime? </label><br>
+	        <span class="mandatory" id="consulate" style="float:left;" tabindex="30">
+	          <span><input type="radio" name="ec" id="ec1" value="1" />Yes</span>
+	          <span><input type="radio" name="ec" id="ec2" value="0" />No</span>
+	        </span>
+        </li>
+
+        <li id="official_container" style="display:none;">
+	        <label for="official_name"><span class="man">*</span> What is the name of the official you spoke with? </label>
+	        <input type="text" class="textfield" id="official_name" name="official_name" />
+        </li>
+
+        <li id="official_contact_container" style="display:none;">
+	        <label for="official_contact"><span class="man">*</span> What is the official"s phone number or email? </label>
+	        <input type="text" class="textfield" id="official_contact" name="official_contact" />
+        </li>  
+
+	  <li>
+	<label for="pol"><span class="man">*</span>Do you have a police report?</label>
+	<span class="mandatory" id="police" style="float:left;" tabindex="26">
+	  <span><input type="radio" name="police" id="pol-1" value="1" />Yes</span>
+	  <span><input type="radio" name="police" id="pol-0" value="0" />No</span><br>
+	  <strong>If yes, send the report by email to: <a href="mailto:Victims-Abroad-Fund-Manager@justice.gc.ca">Victims-Abroad-Fund-Manager@justice.gc.ca</a></strong>
+	</span>
+	</li>
+
+
+    </ul>    
+    </fieldset>
+
+
+    <fieldset>
+	<legend><span class="man">*</span>In your own words provide a detailed account of what happened</legend>
+	<textarea class="mandatory" id="descriptionOfOffence" style="width:100%" rows="15" name="descriptionOfOffence"></textarea>
+
+	</fieldset><br>
+
+
+
+	<fieldset>
+	<legend> <span class="man">*</span>Provide a detailed description of what your expenses are</legend>
+	<textarea class="mandatory" id="descriptionOfExpense" style="width:100%" rows="15" name="descriptionOfExpense"></textarea>
+	<br>
+	</fieldset>
+
+    <p style="clear:both;"></p>
+	<fieldset>    
+        
+	<legend><strong>Collection, Use and Disclosure of Personal Information</strong></legend>
+	<ul style="margin-top:-20px">
+    <li>Your personal information provided in the funding application form is being collected under the authority of Section 4 of the Privacy Act, and will only be used for the purposes for which it was collected, namely to administer the Victims Abroad Component under the Victims Fund. </li>
+
+
+	</ul>
+
+	</fieldset>
+    
+	<p  style="text-align: center; margin-top:-20px"><input id="submitButton" type="button" value="Submit">&nbsp;
+	<input type="reset" value="Reset" onClick="window.location.reload()"></p>
+        
+	</form>
+
+</div></div>
+   
+ <!-- CustomScriptsStart -->
+ 
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+
+$("#submitButton").click(function() {
+
+
+if (validate()) {
+  //alert("validated")
+  $("#form1").submit();
+
+} else {
+
+  //alert("not validated")
+
+}
+
+
+})
+
+
+	var $tdt = $("#tdt")
+	//var $citizenship = document.getElementById("citizenship");
+	var $status_country = $("#status_country")
+	var $coverage = $("#coverage") 	
+	var $support_type = $("#vs1")
+	var $support_type1 = $("#vs")
+	var $ec1 = $("#ec1");
+	var $ec2 = $("#ec2");
+	var $wi_1 = $("#wi_1")
+	var $wi_2 = $("#wi_2")
+
+	
+	$ec1.change(function() {
+          activate_ec($ec1)
+	})
+	
+	$ec2.change(function() {
+          activate_ec($ec2)
+	})
+
+	$wi_1.change(function() {
+	  activate_wi($wi_1)
+	})
+
+	$wi_2.change(function() {
+	  activate_wi($wi_2)
+	})
+
+	function activate_wi(element) {
+	 var container = $("#coverage");
+	 var textarea = $("#coverage_details")
+
+	 if (element.val() == 1) {
+		
+			container.css("display", "block")
+		
+			textarea.attr("class", "mandatory txtArea")		
+		}
+		else {			
+
+			container.css("display", "none")
+			textarea.attr("class", "txtArea")	
+					
+		}
+
+	}
+
+	function activate_ec(element) {
+		var container = $("#official_container");
+		var container1 = $("#official_contact_container");		
+		var txtField = $("#official_name");
+		var txtField1 = $("#official_contact");
+		
+
+
+		if (element.val() == 1) {
+		
+			container.css("display", "block")
+			container1.css("display", "block")			
+			txtField.attr("class", "mandatory textfield")
+			txtField1.attr("class", "mandatory textfield")			
+		}
+		else {			
+
+			container.css("display", "none")
+			container1.css("display", "none")			
+			txtField.attr("class", "textfield")
+			txtField1.attr("class", "textfield")	
+					
+		}
+	}
+
+
+
+	$support_type.change(function() {
+		
+		activate_specify_support($(this));
+	})
+
+	$support_type1.change(function() {
+		
+		activate_specify_support($(this));
+	})
+
+	function activate_specify_support(element) {
+		var $container = $("#type_support")
+		var $txtField = $("#support_type")
+		
+		if (element.val() == 1) {
+			$container.show()
+			$txtField.attr("class","mandatory textfield")
+
+			
+		}
+		else {			
+			$container.hide()
+			$txtField.attr("class","textfield");			
+		}
+	}
+
+
+
+	$status_country.change(function() {
+		var $container = $("#status")
+
+		if ($(this).val() == 4) {
+			$container.show()
+			
+		}
+		else {
+			if ($("#specify_status")) {
+				$container.hide()
+			}
+		}
+	})
+
+	
+
+
+
+
+	function validate() {
+				     
+	    var inputs = $(":input");
+	    var dates = $("date");
+	    var selects = $("select");
+	    var spans = $("span");
+	    var textareas = $("textarea");
+	    var span_vt = $("#vf_type");
+	    var span_single = $("#consent_container");
+	    var email = $("#email");
+	    
+
+	    var found = []
+	    var clean = []
+
+	
+
+	inputs.each(function(i) {
+
+	  if ($(this).hasClass("mandatory") && ($(this).val() == "") && (!isValidEmail($(this))) ) {
+   	    $(this).css("border", "2px solid #ff0000")
+            $(this).css("border-radius", "2px solid #ff0000")
+            $(this).attr("class", "mandatory textfield error")           
+            found.push($(this));
+	  } else {
+	    $(this).attr("class", "textfield")
+            $(this).css("border", "1px solid #808080")
+	  }
+
+
+	})
+
+	
+
+   
+	selects.each(function() {
+	
+	  if ($(this).hasClass("mandatory") && ($(this).val() == "")) {
+	    $(this).css("border", "2px solid #ff0000")
+            $(this).css("border-radius", "2px solid #ff0000")
+            $(this).attr("class", "mandatory textfield error")           
+            found.push($(this));
+	  } else {
+	    $(this).attr("class", "textfield")
+            $(this).css("border", "1px solid #808080")
+	  }
+	
+	})
+
+	spans.each(function() {
+
+	  if ($(this).hasClass("mandatory")) {
+	    var radios = $(this).find(":input")
+
+ 	    var total = 0
+	    
+	    radios.each(function() {
+
+              if (!$(this).is(":checked")) {
+		total += 1
+	
+		
+
+	      }   	      
+	
+	    })
+	   
+	    
+	    if (total == radios.length) {
+	    	found.push($(this))
+		$(this).css("border", "2px solid #ff0000")
+		$(this).css("border-radius", "5px")
+		$(this).attr("class", "mandatory error")
+	    } else {
+	    	$(this).css("border", "transparent")
+		$(this).attr("class", "mandatory")
+ 	    }
+
+	  }
+
+	})
+ 
+
+	
+	    var container = $("#email_container")
+	    if (!isValidEmail(email) && email.val() != ""  ) {
+	    	
+	    	$("#invalid_email").remove()    	
+	    	var errorMsg = $("<div></div>")
+	    	errorMsg.attr("id", "invalid_email");
+	    	errorMsg.text("Please enter a valid email address")
+	    	errorMsg.css("clear", "both")
+	    	errorMsg.css("float", "right")
+		email.css("border", "2px solid #ff0000")
+                email.css("border-radius", "2px solid #ff0000")
+                email.attr("class", "mandatory textfield error")           
+                found.push(email);
+	    	container.append(errorMsg);
+		 
+		
+	    } 
+
+	    else {
+		
+		if (email.val() != "") {
+	    	 $("#invalid_email").remove() 
+	    	 email.attr("class", "mandatory textfield")
+                 email.css("border", "1px solid #808080")
+		}
+
+			
+
+	    	
+	    } 
+
+
+	    if (found.length > 0) {
+			
+		found[0].focus();		
+		found = []
+		return false;			
+    	    } else {
+
+               return true;
+		
+	   } 
+
+  }
+
+
+
+
+  function isValidEmail(email) {
+     if (email.attr("id") == "email") {
+	
+	var email_value = email.val()
+	var atpos = email_value.indexOf("@");
+	var dotpos = email_value.indexOf(".");
+
+	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email_value.length) {
+	  return false
+	} else {
+	  return true
+	} 
+	
+     } 
+
+  }
+
+
+});
+
+</script>
+<!-- CustomScriptsEnd -->
+   
+    <dl id="gcwu-date-mod" role="contentinfo">
+  <dt>Modifier:</dt><dd><span><time><!--#echo var="LAST_MODIFIED" --></time></span></dd>
+</dl>
+<div class="clear"></div>
+		<!-- MainContentEnd -->
+	</div>
+   </div>
+
+
+<!-- #include file="/eng/fund-fina/cj-jp/includes/sidebar-nav.inc"-->
+<!-- #include virtual="/eng/includes/footer.inc" -->

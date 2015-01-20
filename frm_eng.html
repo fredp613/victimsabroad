@@ -181,8 +181,9 @@ select {
 	<li style="list-style:none;">		
 			<label><span class="man">*</span>I am applying as the </label>
 			<span class="mandatory" style="float:left;" id="vtype" tabindex="1">
-			  <span><input type="radio" name="app_type"  value="0" />victim</span><br>
-			  <span><input type="radio" name="app_type"  value="1" />support person for the victim</span>
+			  <span><label for="v1">victim</label></span><input type="radio" name="app_type" id="v1"  value="0" />
+			  	<br>
+			  <span><label for="v2">support person for the victim</label></span><input type="radio" name="app_type" id='v2'  value="1" />
 			</span><br>
 		</li>
 
@@ -259,16 +260,16 @@ select {
 		<li>
 			<label  class="mandatory"><span class="man">*</span> Do you have travel insurance?  </label>
 			<span class="mandatory" style="float:left;" tabindex="13">
-				<span><input type="radio" class="yes" name="ti" id="travel_insurance-yes" value="1" />Yes</span>
-				<span><input type="radio" class="no" name="ti" id="travel_insurance-no" value="0" />No</span>
+				<label for="ti-yes">Yes<input type="radio" class="yes" name="ti" id="ti-yes" value="1" /></label><br>
+				<label for="ti-no">No<input type="radio" class="no" name="ti" id="ti-no" value="0" /></label> 
 			</span>
 		</li>
 
 		<li>
 			<label class="mandatory"><span class="man">*</span> Do you have work insurance? </label>
 			<span id="work_insurance" class="mandatory" style="float:left;" tabindex="13">
-				<span><input type="radio" class="yes" name="wi" id="wi_1" value="1" />Yes</span>
-				<span><input type="radio" class="no" name="wi" id="wi_2" value="0" />No</span>
+				<label for="wi_1">Yes<input type="radio" class="yes" name="wi" id="wi_1" value="1" /></label><br>
+				<label for="wi_2">No<input type="radio" class="no" name="wi" id="wi_2" value="0" /></label>
 			</span>
 		</li>
 		
@@ -348,8 +349,8 @@ select {
         <li>		
 	        <label><span class="man">*</span> Have you contacted the Canadian Embassy or Consulate to report the crime? </label><br>
 	        <span class="mandatory" id="consulate" style="float:left;" tabindex="30">
-	          <span><input type="radio" name="ec"  value="1" />Yes</span>
-	          <span><input type="radio" name="ec"  value="0" />No</span>
+	          <label for="ec1"><input type="radio" name="ec" id="ec1"  value="1" />Yes</label><br>
+	          <label for="ec2"><input type="radio" name="ec" id="ec2"  value="0" />No</label>
 	        </span>
         </li>
 
@@ -366,10 +367,10 @@ select {
 	  <li>
 	<label><span class="man">*</span>Do you have a police report?</label>
 	<span class="mandatory" id="police" style="float:left;" tabindex="26">
-	  <span><input type="radio" name="police" id="pol-1" value="1" />Yes</span>
-	  <span><input type="radio" name="police" id="pol-0" value="0" />No</span><br>
-	  <strong>If yes, send the report by email to: <a href="mailto:Victims-Abroad-Fund-Manager@justice.gc.ca">Victims-Abroad-Fund-Manager@justice.gc.ca</a></strong>
+	  <label for="pol-1"><input type="radio" name="police" id="pol-1" value="1" />Yes</label><br>
+	  <label for="pol-0"><input type="radio" name="police" id="pol-0" value="0" />No</label><br>	  
 	</span>
+	<strong>If yes, send the report by email to: <a href="mailto:Victims-Abroad-Fund-Manager@justice.gc.ca">Victims-Abroad-Fund-Manager@justice.gc.ca</a></strong>
 	</li>
 
 

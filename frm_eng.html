@@ -15,7 +15,16 @@
 <style type="text/css">
  
  
- 
+.left {
+	float: left;
+	width: 100%
+}
+
+.right {
+	float:right;
+	width:100%;
+}
+
  
 fieldset ul {
   display: inline-block;
@@ -43,10 +52,6 @@ fieldset li label  {
   /*margin:5px; */
  
 }
- 
- 
- 
- 
  
 fieldset li input[type='text']{
   width: 250px;
@@ -134,6 +139,8 @@ select {
 }
 .man {
                 color:#ff0000;
+                font-style: italic;
+                font-weight: bold;
 }
  
  
@@ -164,7 +171,8 @@ select {
  
  
 <!-- JQUERY -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+<script src="jquery-2.1.3.min.js" type="text/javascript"></script>
 <!-- JQUERY END -->
 
 <div id="body_container">
@@ -173,131 +181,130 @@ select {
 	<form id="form1" action="proces1.aspx" method="post" name="form1">
 
 	<h1>Application for Financial Assistance for Canadians
-	Victimized Abroad</h1><span class="man">* Denotes mandatory fields</span>
-<!-- statu -->
+	Victimized Abroad</h1>
+<!-- staasdf -->
 	<fieldset>
 	  <legend><strong>Application type</strong></legend>
-	<ul>	
-	<li style="list-style:none;">		
-			<label><span class="man">*</span>I am applying as the </label>
-			<span class="mandatory" style="float:left;" id="vtype" tabindex="1">
-			  <span><label for="v1">victim</label></span><input type="radio" name="app_type" id="v1"  value="0" />
-			  	<br>
-			  <span><label for="v2">support person for the victim</label></span><input type="radio" name="app_type" id='v2'  value="1" />
-			</span><br>
-		</li>
-
-		<li id="type_support" style="display:none;">
-			<label><span class="man">*</span> What is your relationship to the victim? (i.e. parent, spouse etc.) </label>
+	<div class='left'>
+		<div><span class="man">*</span><label>I am applying as the</label><span class="man"> (required)</span></div>
+		<p class="mandatory left" id="vtype" tabindex="1">
+		  <label for="v1"><input type="radio" name="app_type" id="v1"  value="0" />Victim</label>
+		  	<br>
+		  <label for="v2"><input type="radio" name="app_type" id='v2'  value="1" />support person for the victim</label>
+		</p><br>
+			
+	
+		<div class='left' id="type_support" style="display:none;">
+			<label><span class="man">*</span> What is your relationship to the victim? (i.e. parent, spouse etc.) </label><span class="man"> (required)</span>
 			<input type="text" class="textfield" id="support_type" name="support_type" />
-		</li>
-	</ul>
+		</div>
+	</div>
+	
 	</fieldset>
 
 	<fieldset> 
 	<legend><strong>Personal and Payment Information</strong></legend>
 
-	<ul class="col1">	
+		
 
-		<li>
-			<label> Salutation </label>
+		<p class='left'>
+			<label for="salutation"> Salutation </label><br>
 			<select class="select" id="salutation" name="salutation">
 				<option value=""> </option>
 				<option value="Mr">Mr</option>
 				<option value="Ms">Ms</option>	
 				<option value="Mrs">Mrs</option>
-			</select>
-		</li>
+			</select>			
+		</p>
 
-		<li>
-			<label><span class="man">*</span> First Name  </label>
-			<input type="text" class="mandatory textfield" id="Firstname" name="Firstname" />
-		</li>
+		<p class='left'>
+			<label for="firstname"><span class="man">*</span> First Name </label><span class="man"> (required)</span><br>
+			<input type="text" class="mandatory textfield" id="firstname" name="firstname" />  			
+		</p>
+		<p class='left'>
+			<label><span class="man">*</span> Last Name</label><span class="man"> (required)</span> <br>
+			<input type="text" class="mandatory textfield" id="surname" name="surname" />  
+		</p>
 
-		<li>
-			<label><span class="man">*</span> Last Name  </label>
-			<input type="text" class="mandatory textfield" id="surname" name="surname" />
-		</li>
-
-		<li>
-			<label><span class="man">*</span> Mailing address (Canada)  </label>
+		<p claas='left'>
+			<label for="addr_canada"><span class="man">*</span> Mailing address (Canada)</label><span class="man"> (required)</span><br>
 			<textarea id="addr_canada" class="mandatory" cols="32" rows="5" name="addr_canada"></textarea>
-		</li>
+		</p>
 			
 
-		<li>
-			<label> Mailing address (Outside Canada), if applicable </label>
+		<p class='left'>
+			<label for="addr_abroad"> Mailing address (Outside Canada), if applicable </label><br>
 			<textarea id="addr_abroad" cols="32" rows="5" name="addr_abroad"></textarea>
-		</li>
+		</p>
 
-		<li>
-			<label><span class="man">*</span> Tel.No.(main)  </label>
+		<p class='left'>
+			<label for="phone1"><span class="man">*</span> Tel.No.(main)</label><span class="man"> (required)</span><br>
 			<input type="text" class="mandatory textfield" id="phone1" name="phone1" />
-		</li>
+		</p>
 
-		<li>
-			<label> Tel.No.(work)</label>
+		<p class='left'>
+			<label for="phone2"> Tel.No.(work)</label><br>
 			<input type="text" class="textfield" id="phone2" name="phone2" />
-		</li>
+		</p>
 		
 
-		<li>
-			<label> Fax </label>
+		<p class='left'>
+			<label for="phone4"> Fax </label><br>
 			<input type="text" class="textfield" id="phone4" name="phone4" />
-		</li>
+		</p>
 
 
-		<li id="email_container">
-			<label><span class="man">*</span> Email  </label>
+		<p class='left' id="email_container">
+			<label for="email"><span class="man">*</span> Email</label><span class="man"> (required)</span><br>
 			<input type="text" class="mandatory emailfield" id="email" name="email" />
-		</li>
+		</p>
 
-		<li>
-			<label><span class="man">*</span> Year of birth (YYYY)  </label>
+		<p class='left'>
+			<label for="yrBirth"><span class="man">*</span> Year of birth (YYYY)</label><span class="man"> (required)</span><br>
 			<input type="text" class="mandatory date" id="yrBirth" name="yrBirth" />
-		</li>
+		</p>
 
-		<li>
-			<label  class="mandatory"><span class="man">*</span> Do you have travel insurance?  </label>
+		<p class='left'>
+			<label  class="mandatory"><span class="man">*</span> Do you have travel insurance?</label><span class="man"> (required)</span><br>
 			<span class="mandatory" style="float:left;" tabindex="13">
 				<label for="ti-yes">Yes<input type="radio" class="yes" name="ti" id="ti-yes" value="1" /></label><br>
 				<label for="ti-no">No<input type="radio" class="no" name="ti" id="ti-no" value="0" /></label> 
 			</span>
-		</li>
+		</p>
 
-		<li>
-			<label class="mandatory"><span class="man">*</span> Do you have work insurance? </label>
+		<p class='left'>
+			<label class="mandatory"><span class="man">*</span> Do you have work insurance?</label><span class="man"> (required)</span><br>
 			<span id="work_insurance" class="mandatory" style="float:left;" tabindex="13">
 				<label for="wi_1">Yes<input type="radio" class="yes" name="wi" id="wi_1" value="1" /></label><br>
 				<label for="wi_2">No<input type="radio" class="no" name="wi" id="wi_2" value="0" /></label>
 			</span>
-		</li>
+		</p>
 		
-		<li id="coverage" style="display:none">
-			<label>Describe your coverage</label>
+		<p class='left' id="coverage" style="display:none">
+			<label for="coverage_details">Describe your coverage</label>
 			<textarea id="coverage_details" cols="32" rows="5" name="work_insurance_coverage"></textarea>	
-		</li>
+		</p>
 
 
-		<li>
-			<label><span class="man">*</span>  Passport Number </label>
+		<p class='left'>
+			<label for="passportNo"><span class="man">*</span> Passport Number</label><span class="man"> (required)</span><br>
 			<input type="text" class="mandatory textfield" id="passportNo" name="passportNo" />
-		</li>
+		</p>
 		
-		<li>
-			<label><span class="man">*</span> Expiry Date</label>
+		<p class='left'>
+			<label for="passportExpiryDate"><span class="man">*</span> Expiry Date</label><span class="man"> (required)</span><br>
 			<input type="text" class="mandatory date" id="passportExpiryDate" name="passportExpiryDate" />
-		</li>
+		</p>
 
-		<li>
-			<label> If carrying other travel document, specify </label>
+		<p class='left'>
+			<label for="other_travel"> If carrying other travel document, specify </label><br>
 			<textarea id="other_travel" cols="32" rows="5" name="other_travel"></textarea>
-		</li>
+		</p>
 
 
 		
-		<li>
-			<label> Status in country where the crime occurred </label>
+		<p class='left'>
+			<label for="status_country"> Status in country where the crime occurred </label><br>
 			<select class="select mandatory" id="status_country" name="status_country">
 				<option value="0"> </option>
 				<option value="1">Student</option>
@@ -305,18 +312,19 @@ select {
 				<option value="3">Tourist</option>
 				<option value="4">Other</option>	
 			</select>
-		</li>
+		</p>
 
-		<li id="status" style="display:none;">
-			<label><span class="man">*</span>  Specify status </label>
+		<p class='left' id="status" style="display:none;">
+			<label for="specify_status"><span class="man">*</span>  Specify status</label><span class="man"> (required)</span>
 			<input type="text" class="textfield" id="specify_status" name="specify_status" />
-		</li>
+		</p>
 			
-		<li>
-			<label><span class="man">*</span>  If considered for funding, cheque payable to </label>
+		<p class='left'>
+			<label for="payable"><span class="man">*</span>  If considered for funding, cheque payable to</label>
+			<span class="man"> (required)</span><br>
 			<input type="text" class="mandatory textfield" id="payable" name="payable" />
-		</li>
-	</ul>
+		</p>
+	
 
 
 	</fieldset>
@@ -324,63 +332,63 @@ select {
 	<fieldset>
 		<legend><strong>Nature of Victimization</strong></legend>
 
-	<ul class="col1">
-	<li>
-		<span class="man">*</span> Victimization Type<br><br>
+	
+	<p class='left'>
+		<span class="man">*</span>Victimization Type<span class="man"> (required)</span><br><br>
 		<span id="vf_type" class="mandatory" style="float:left;" tabindex="23">
-			<span><input type="radio" name="nov" id="nov1" value="0" />Homicide</span><br>
-			<span><input type="radio" name="nov" id="nov2" value="1" />Sexual Assault</span><br>
-			<span><input type="radio" name="nov" id="nov3" value="2" />Aggravated assault</span><br>
-			<span><input type="radio" name="nov" id="nov4" value="3" />Assault with serious personal violence, or threat of serious personal violence, including against a child</span><br>
+			<span><input type="radio" name="nov" id="nov1" value="0" /><label for="nov1">Homicide</label></span><br>
+			<span><input type="radio" name="nov" id="nov2" value="1" /><label for="nov2">Sexual Assault</label></span><br>
+			<span><input type="radio" name="nov" id="nov3" value="2" /><label for="nov3">Aggravated assault</label></span><br>
+			<span><input type="radio" name="nov" id="nov4" value="3" /><label for="nov4">Assault with serious personal violence, or threat of serious personal violence, including against a child</label></span><br>
 				
 		</span><br><br><br><br>
-	</li>
+	</p>
 
-	<li>
-		<label><span class="man">*</span>  Location of crime (city / country)</label>
+	<p class='left'>
+		<label for="locOffence"><span class="man">*</span>  Location of crime (city / country)</label><span class="man"> (required)</span><br>
 		<input type="text" class="mandatory textfield" id="locOffence" name="locOffence" />
-	</li>
+	</p>
 
-	<li>
-		<label><span class="man">*</span>  Date of crime</label>
+	<p class='left'>
+		<label for="offenceDate"><span class="man">*</span>  Date of crime</label><span class="man"> (required)</span><br>
 		<input type="text" class="mandatory date" id="offenceDate" name="offenceDate" />
-	</li>
+	</p>
        
-        <li>		
-	        <label><span class="man">*</span> Have you contacted the Canadian Embassy or Consulate to report the crime? </label><br>
+        <div>		
+	        <label><span class="man">*</span> Have you contacted the Canadian Embassy or Consulate to report the crime? </label><span class="man"> (required)</span><br>
 	        <span class="mandatory" id="consulate" style="float:left;" tabindex="30">
 	          <label for="ec1"><input type="radio" name="ec" id="ec1"  value="1" />Yes</label><br>
 	          <label for="ec2"><input type="radio" name="ec" id="ec2"  value="0" />No</label>
 	        </span>
-        </li>
+        </div>
 
-        <li id="official_container" style="display:none;">
-	        <label><span class="man">*</span> What is the name of the official you spoke with? </label>
+        <div id="official_container" style="display:none;">
+	        <label for="official_name"><span class="man">*</span> What is the name of the official you spoke with?</label><span class="man"> (required)</span>
 	        <input type="text" class="textfield" id="official_name" name="official_name" />
-        </li>
+        </div>
 
-        <li id="official_contact_container" style="display:none;">
-	        <label><span class="man">*</span> What is the official"s phone number or email? </label>
+        <div id="official_contact_container" style="display:none;">
+	        <label for="official_contact"><span class="man">*</span> What is the official"s phone number or email?</label><span class="man"> (required)</span>
 	        <input type="text" class="textfield" id="official_contact" name="official_contact" />
-        </li>  
+        </div>  
 
-	  <li>
-	<label><span class="man">*</span>Do you have a police report?</label>
+	  <p class='left'>
+	<label><span class="man">*</span>Do you have a police report?</label><span class="man"> (required)</span><br>
 	<span class="mandatory" id="police" style="float:left;" tabindex="26">
 	  <label for="pol-1"><input type="radio" name="police" id="pol-1" value="1" />Yes</label><br>
 	  <label for="pol-0"><input type="radio" name="police" id="pol-0" value="0" />No</label><br>	  
 	</span>
-	<strong>If yes, send the report by email to: <a href="mailto:Victims-Abroad-Fund-Manager@justice.gc.ca">Victims-Abroad-Fund-Manager@justice.gc.ca</a></strong>
-	</li>
+	<strong class='left'>If yes, send the report by email to: <a href="mailto:Victims-Abroad-Fund-Manager@justice.gc.ca">Victims-Abroad-Fund-Manager@justice.gc.ca</a></strong>
+	</p>
 
 
-    </ul>    
+      
     </fieldset>
 
 
     <fieldset>
     	
-	<legend><span class="man">*</span>In your own words provide a detailed account of what happened</legend>
+	<legend><span class="man">*</span>In your own words provide a detailed account of what happened<span class="man"> (required)</span></legend>
 	<textarea class="mandatory" id="descriptionOfOffence" style="width:100%" rows="15" name="descriptionOfOffence"></textarea>
 
 	</fieldset><br>
@@ -388,7 +396,7 @@ select {
 
 
 	<fieldset>
-	<legend> <span class="man">*</span>Provide a detailed description of what your expenses are</legend>
+	<legend> <span class="man">*</span>Provide a detailed description of what your expenses are<span class="man"> (required)</span></legend>
 	<textarea class="mandatory" id="descriptionOfExpense" style="width:100%" rows="15" name="descriptionOfExpense"></textarea>
 	<br>
 	</fieldset>
@@ -396,17 +404,20 @@ select {
     <p style="clear:both;"></p>
 	<fieldset>    
         
-	<legend><strong>Collection, Use and Disclosure of Personal Information</strong></legend>
-	<ul style="margin-top:-20px">
-    <li>Your personal information provided in the funding application form is being collected under the authority of Section 4 of the Privacy Act, and will only be used for the purposes for which it was collected, namely to administer the Victims Abroad Component under the Victims Fund. </li>
+	<legend>
+		<strong>Collection, Use and Disclosure of Personal Information</strong>
+	</legend>
+	
+	
 
-
-	</ul>
+    <div>Your personal information provided in the funding application form is being collected under the authority of Section 4 of the Privacy Act, and will only be used for the purposes for which it was collected, namely to administer the Victims Abroad Component under the Victims Fund. </div>
+	
 
 	</fieldset>
     
-	<p  style="text-align: center; margin-top:-20px"><input id="submitButton" type="button" value="Submit">&nbsp;
-	<input type="reset" value="Reset" onClick="window.location.reload()"></p>
+	<p  style="text-align: center;"><input id="submitButton" type="button" value="Submit">&nbsp;
+		<input type="reset" value="Reset" onClick="window.location.reload()">
+	</p>
         
 	</form>
 
@@ -545,154 +556,154 @@ if (validate()) {
 
 
 
-	function validate() {
+	// function validate() {
 				     
-	    var inputs = $(":input");
-	    var dates = $("date");
-	    var selects = $("select");
-	    var spans = $("span");
-	    var textareas = $("textarea");
-	    var span_vt = $("#vf_type");
-	    var span_single = $("#consent_container");
-	    var email = $("#email");
+	//     var inputs = $(":input");
+	//     var dates = $("date");
+	//     var selects = $("select");
+	//     var spans = $("span");
+	//     var textareas = $("textarea");
+	//     var span_vt = $("#vf_type");
+	//     var span_single = $("#consent_container");
+	//     var email = $("#email");
 	    
 
-	    var found = []
-	    var clean = []
+	//     var found = []
+	//     var clean = []
 
 	
 
-	inputs.each(function(i) {
+	// inputs.each(function(i) {
 
-	  if ($(this).hasClass("mandatory") && ($(this).val() == "") && (!isValidEmail($(this))) ) {
-   	    $(this).css("border", "2px solid #ff0000")
-            $(this).css("border-radius", "2px solid #ff0000")
-            $(this).attr("class", "mandatory textfield error")           
-            found.push($(this));
-	  } else {
-	    $(this).attr("class", "textfield")
-            $(this).css("border", "1px solid #808080")
-	  }
+	//   if ($(this).hasClass("mandatory") && ($(this).val() == "") && (!isValidEmail($(this))) ) {
+ //   	    $(this).css("border", "2px solid #ff0000")
+ //            $(this).css("border-radius", "2px solid #ff0000")
+ //            $(this).attr("class", "mandatory textfield error")           
+ //            found.push($(this));
+	//   } else {
+	//     $(this).attr("class", "textfield")
+ //            $(this).css("border", "1px solid #808080")
+	//   }
 
 
-	})
+	// })
 
 	
 
    
-	selects.each(function() {
+	// selects.each(function() {
 	
-	  if ($(this).hasClass("mandatory") && ($(this).val() == "")) {
-	    $(this).css("border", "2px solid #ff0000")
-            $(this).css("border-radius", "2px solid #ff0000")
-            $(this).attr("class", "mandatory textfield error")           
-            found.push($(this));
-	  } else {
-	    $(this).attr("class", "textfield")
-            $(this).css("border", "1px solid #808080")
-	  }
+	//   if ($(this).hasClass("mandatory") && ($(this).val() == "")) {
+	//     $(this).css("border", "2px solid #ff0000")
+ //            $(this).css("border-radius", "2px solid #ff0000")
+ //            $(this).attr("class", "mandatory textfield error")           
+ //            found.push($(this));
+	//   } else {
+	//     $(this).attr("class", "textfield")
+ //            $(this).css("border", "1px solid #808080")
+	//   }
 	
-	})
+	// })
 
-	spans.each(function() {
+	// spans.each(function() {
 
-	  if ($(this).hasClass("mandatory")) {
-	    var radios = $(this).find(":input")
+	//   if ($(this).hasClass("mandatory")) {
+	//     var radios = $(this).find(":input")
 
- 	    var total = 0
+ // 	    var total = 0
 	    
-	    radios.each(function() {
+	//     radios.each(function() {
 
-              if (!$(this).is(":checked")) {
-		total += 1
+ //              if (!$(this).is(":checked")) {
+	// 	total += 1
 	
 		
 
-	      }   	      
+	//       }   	      
 	
-	    })
+	//     })
 	   
 	    
-	    if (total == radios.length) {
-	    	found.push($(this))
-		$(this).css("border", "2px solid #ff0000")
-		$(this).css("border-radius", "5px")
-		$(this).attr("class", "mandatory error")
-	    } else {
-	    	$(this).css("border", "transparent")
-		$(this).attr("class", "mandatory")
- 	    }
+	//     if (total == radios.length) {
+	//     	found.push($(this))
+	// 	$(this).css("border", "2px solid #ff0000")
+	// 	$(this).css("border-radius", "5px")
+	// 	$(this).attr("class", "mandatory error")
+	//     } else {
+	//     	$(this).css("border", "transparent")
+	// 	$(this).attr("class", "mandatory")
+ // 	    }
 
-	  }
+	//   }
 
-	})
+	// })
  
 
 	
-	    var container = $("#email_container")
-	    if (!isValidEmail(email) && email.val() != ""  ) {
+	//     var container = $("#email_container")
+	//     if (!isValidEmail(email) && email.val() != ""  ) {
 	    	
-	    	$("#invalid_email").remove()    	
-	    	var errorMsg = $("<div></div>")
-	    	errorMsg.attr("id", "invalid_email");
-	    	errorMsg.text("Please enter a valid email address")
-	    	errorMsg.css("clear", "both")
-	    	errorMsg.css("float", "right")
-		email.css("border", "2px solid #ff0000")
-                email.css("border-radius", "2px solid #ff0000")
-                email.attr("class", "mandatory textfield error")           
-                found.push(email);
-	    	container.append(errorMsg);
+	//     	$("#invalid_email").remove()    	
+	//     	var errorMsg = $("<div></div>")
+	//     	errorMsg.attr("id", "invalid_email");
+	//     	errorMsg.text("Please enter a valid email address")
+	//     	errorMsg.css("clear", "both")
+	//     	errorMsg.css("float", "right")
+	// 	email.css("border", "2px solid #ff0000")
+ //                email.css("border-radius", "2px solid #ff0000")
+ //                email.attr("class", "mandatory textfield error")           
+ //                found.push(email);
+	//     	container.append(errorMsg);
 		 
 		
-	    } 
+	//     } 
 
-	    else {
+	//     else {
 		
-		if (email.val() != "") {
-	    	 $("#invalid_email").remove() 
-	    	 email.attr("class", "mandatory textfield")
-                 email.css("border", "1px solid #808080")
-		}
+	// 	if (email.val() != "") {
+	//     	 $("#invalid_email").remove() 
+	//     	 email.attr("class", "mandatory textfield")
+ //                 email.css("border", "1px solid #808080")
+	// 	}
 
 			
 
 	    	
-	    } 
+	//     } 
 
 
-	    if (found.length > 0) {
+	//     if (found.length > 0) {
 			
-		found[0].focus();		
-		found = []
-		return false;			
-    	    } else {
+	// 	found[0].focus();		
+	// 	found = []
+	// 	return false;			
+ //    	    } else {
 
-               return true;
+ //               return true;
 		
-	   } 
+	//    } 
 
-  }
-
-
+ //  }
 
 
-  function isValidEmail(email) {
-     if (email.attr("id") == "email") {
+
+
+ //  function isValidEmail(email) {
+ //     if (email.attr("id") == "email") {
 	
-	var email_value = email.val()
-	var atpos = email_value.indexOf("@");
-	var dotpos = email_value.indexOf(".");
+	// var email_value = email.val()
+	// var atpos = email_value.indexOf("@");
+	// var dotpos = email_value.indexOf(".");
 
-	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email_value.length) {
-	  return false
-	} else {
-	  return true
-	} 
+	// if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email_value.length) {
+	//   return false
+	// } else {
+	//   return true
+	// } 
 	
-     } 
+ //     } 
 
-  }
+ //  }
 
 
 });

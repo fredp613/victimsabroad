@@ -257,95 +257,95 @@ select {
 	            <span>
 	              <input type="radio" name="victim_support" id="vs1" value="1" />
 	              personne de confiance pour la victime</span> </span><br>
-	          </li>
+	          </div>
 	        <li id="type_support" style="display:none;">
 	          <label><span class="man">*</span> C"est quoi votre relation avec le victime? (i.e. parent, spouse etc.) </label>
 	          <input type="text" class="textfield" id="support_type" name="support_type" />
-	          </li>
+	          </div>
 	        </ul>
 	      </fieldset>
 	    <fieldset>
 	      <legend><strong>Renseignements personnels (et pour le paiement)</strong></legend>
 	      <ul class="col1">
-	        <li>
+	        <div>
 	          <label> Salutation </label>
 	          <select class="select" id="salutation" name="salutation">
 	            <option value=""> </option>
 	            <option value="M.">M.</option>
 	            <option value="Mme">Mme.</option>
 	            </select>
-	          </li>
-	        <li>
+	          </div>
+	        <div>
 	          <label><span class="man">*</span> Pr&eacute;nom </label>
 	          <input type="text" class="mandatory textfield" id="Firstname" name="Firstname" />
-	          </li>
-	        <li>
+	          </div>
+	        <div>
 	          <label><span class="man">*</span> Nom </label>
 	          <input type="text" class="mandatory textfield" id="surname" name="surname" />
-	          </li>
-	        <li>
+	          </div>
+	        <div>
 	          <label><span class="man">*</span> Adresse postale (Canada) </label>
 	          <textarea id="addr_canada" class="mandatory" cols="32" rows="5" name="addr_canada"></textarea>
-	          </li>
-	        <li>
+	          </div>
+	        <div>
 	          <label> Adresse postale (&agrave; l&rsquo;ext&eacute;rieur du Canada), le cas &eacute;ch&eacute;ant </label>
 	          <textarea id="addr_abroad" cols="32" rows="5" name="addr_abroad"></textarea>
-	          </li>
-	        <li>
+	         </div>
+	        <div>
 	          <label><span class="man">*</span> No de t&eacute;l&eacute;phone (principal) </label>
 	          <input type="text" class="mandatory textfield" id="phone1" name="phone1" />
-	          </li>
-	        <li>
+	          </div>
+	        <div>
 	          <label> No de t&eacute;l&eacute;phone (travail)</label>
 	          <input type="text" class="textfield" id="phone2" name="phone2" />
-	          </li>
-	        <li>
+	          </div>
+	        <div>
 	          <label> No de t&eacute;l&eacute;copieur </label>
 	          <input type="text" class="textfield" id="phone3" name="phone3" />
-	          </li>
+	          </div>
 	        <li id="email_container">
 			<label><span class="man">*</span> Courriel  </label>
 			<input type="text" class="mandatory emailfield" id="email" name="email" />
-			</li>
-			<li>
+			</div>
+			<div>
 	          <label><span class="man">*</span> Ann&eacute;e de naissance (AAAA) </label>
 	          <input type="text" class="mandatory date" id="yrBirth" name="yrBirth" />
-	          </li>
-	        <li>
+	          </div>
+	        <div>
 	          <label class="mandatory"><span class="man">*</span> Avez-vous une assurance-voyage? </label>
 	          <span class="mandatory" style="float:left;" tabindex="13"> <span>
 	            <input type="radio" class="yes" name="ti" id="travel_insurance-yes" value="1" />
 	            Oui</span> <span>
 	              <input type="radio" class="no" name="ti" id="travel_insurance-no" value="0" />
-	              Non</span> </span> </li>
+	              Non</span> </span> </div>
 	        
 
-		<li>
+		<div>
 			<label  class="mandatory"><span class="man">*</span> Avez-vous une assurance en milieu de travail? </label>
 			<span id="work_insurance" class="mandatory" style="float:left;" tabindex="13">
 				<span><input type="radio" class="yes" name="wi" id="wi_1" value="1" />Oui</span>
 				<span><input type="radio" class="no" name="wi" id="wi_2" value="0" />Non</span>
 			</span>
-		</li>
+		</div>
 		
 		<li id="coverage" style="display:none">
 			<label>Si oui, d&eacute;crivez votre couverture d"assurance</label>
 			<textarea id="coverage_details" cols="32" rows="5" name="work_insurance_coverage"></textarea>	
-		</li>
-		<li>
+		</div>
+		<div>
 
 	          <label><span class="man">*</span> Num&eacute;ro de passeport </label>
 	          <input type="text" class="mandatory textfield" id="passportNo" name="passportNo" />
-	          </li>
-	        <li>
+	          </div>
+	        <div>
 	          <label><span class="man">*</span> Date d&rsquo;expiration</label>
 	          <input type="text" class="mandatory date" id="passportExpiryDate" name="passportExpiryDate" />
-	          </li>
-	        <li>
+	          </div>
+	        <div>
 	          <label> Si vous avez d&rsquo;autres documents de voyage, veuillez les indiquer : </label>
 	          <textarea id="other_travel" cols="32" rows="5" name="other_travel"></textarea>
-	          </li>
-	        <li>
+	          </div>
+	        <div>
 	          <label> Votre statut dans le pays o&ugrave; le crime a eu lieu </label>
 	          <select class="select mandatory" id="status_country" name="status_country">
 	            <option value="0"> </option>
@@ -354,21 +354,21 @@ select {
 	            <option value="3">Touriste</option>
 	            <option value="4">Autre (pr&eacute;ciser)</option>
 	            </select>
-	          </li>
+	          </div>
 	        <li id="status" style="display:none;">
 	          <label><span class="man">*</span> Veuillez pr&eacute;ciser </label>
 	          <input type="text" class="textfield" id="specify_status" name="specify_status" />
-	          </li>
-	        <li>
+	          </div>
+	        <div>
 	          <label><span class="man">*</span> Si votre demande d&rsquo;aide financi&egrave;re est prise en consid&eacute;ration, le ch&egrave;que est fait &agrave; l&rsquo;ordre de : </label>
 	          <input type="text" class="mandatory textfield" id="payable" name="payable" />
-	          </li>
+	          </div>
 	        </ul>
 	      </fieldset>
 	    <fieldset>
 	      <legend><strong>Nature de la victimisation</strong></legend>
 	      <ul class="col1">
-	        <li> <span class="man">*</span> Type de victimisation <br>
+	        <div> <span class="man">*</span> Type de victimisation <br>
 	          <br>
 	          <span id="vf_type" class="mandatory" style="float:left;" tabindex="23"> <span>
 	            <input type="radio" name="nov" id="nov1" value="0" />
@@ -386,32 +386,32 @@ select {
 	          <br>
 	          <br>
 	          <br>
-	          </li>
-	        <li>
+	          </div>
+	        <div>
 	          <label><span class="mn">*</span> Lieu o&ugrave; le crime a &eacute;t&eacute; commis (ville/pays) </label>
 	          <input type="text" class="mandatory textfield" id="locOffence" name="locOffence" />
-	          </li>
-	        <li>
+	          </div>
+	        <div>
 	          <label><span class="man">*</span> Date du crime</label>
 	          <input type="text" class="mandatory date" id="offenceDate" name="offenceDate" />
-	          </li>
-	        <li>
+	          </div>
+	        <div>
 	          <label><span class="man">*</span> Avez-vous communiqu&eacute; avec l&rsquo;Ambassade ou le consulat du Canada pour signaler le crime? </label>
 	          <br>
 	          <span class="mandatory" id="consulate" style="float:left;" tabindex="30"> <span>
 	            <input type="radio" name="ec" id="ec1" value="1" />
 	            Oui</span> <span>
 	              <input type="radio" name="ec" id="ec2" value="0" />
-	              Non</span> </span> </li>
+	              Non</span> </span> </div>
 	        <li id="official_container" style="display:none;">
 	          <label><span class="man">*</span> Quel est le nom du responsable &agrave; qui vous vous &ecirc;tes adress&eacute;? </label>
 	          <input type="text" class="textfield" id="official_name" name="official_name" />
-	          </li>
+	          </div>
 	        <li id="official_contact_container" style="display:none;">
 	          <label><span class="man">*</span> Num&eacute;ro de t&eacute;l&eacute;phone ou adresse courriel du responsable </label>
 	          <input type="text" class="textfield" id="official_contact" name="official_contact" />
-	        </li>
-	        <li>
+	        </div>
+	        <div>
 	          <label><span class="man">*</span>Est-ce que vous avez un rapport de police? </label>
 	          <span class="mandatory" id="police" style="float:left;" tabindex="26"> <span>
 	            <input type="radio" name="police" id="pol-1" value="1" />
@@ -420,7 +420,7 @@ select {
 	              Non</span>
 		<br>
 	  <strong>Si oui, envoyez le rapport par courriel au: <a href="mailto:Victims-Abroad-Fund-Manager@justice.gc.ca">Victims-Abroad-Fund-Manager@justice.gc.ca</a></strong>
- </span> </li>
+ </span> </div>
 	        </ul>
 	      </fieldset>
 	    <fieldset>
@@ -437,7 +437,7 @@ select {
 	    <fieldset>
 	      <legend><strong>Collecte, utilisation et communication de renseignements personnels</strong></legend>
 	      <ul style="margin-top:-20px">
-	        <li>Les renseignements personnels que vous fournissez dans la pr&eacute;sente demande d&rsquo;aide financi&egrave;re sont recueillis conform&eacute;ment &agrave; l&rsquo;article 4 de la Loi sur la protection des renseignements personnels, et ne seront utilis&eacute;s qu&rsquo;aux fins pour lesquelles ils ont &eacute;t&eacute; recueillis, notamment la gestion de la composante du Fonds d&rsquo;aide aux victimes qui porte sur les victimes d&rsquo;actes criminels &agrave; l&rsquo;&eacute;tranger. </li>
+	        <div>Les renseignements personnels que vous fournissez dans la pr&eacute;sente demande d&rsquo;aide financi&egrave;re sont recueillis conform&eacute;ment &agrave; l&rsquo;article 4 de la Loi sur la protection des renseignements personnels, et ne seront utilis&eacute;s qu&rsquo;aux fins pour lesquelles ils ont &eacute;t&eacute; recueillis, notamment la gestion de la composante du Fonds d&rsquo;aide aux victimes qui porte sur les victimes d&rsquo;actes criminels &agrave; l&rsquo;&eacute;tranger. </div>
 	        </ul>
 	      </fieldset>
 	    <p style="text-align: center;" style="margin-top:-20px">

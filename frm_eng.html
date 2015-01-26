@@ -11,6 +11,7 @@
                 <!-- #include virtual="/eng/includes/supporting-files.inc" -->
  
                 <!-- CustomCSSStart --> 
+
  
 <style type="text/css">
  
@@ -160,23 +161,29 @@ select {
 <!-- #include file="/eng/fund-fina/cj-jp/includes/breadcrumbs.inc"-->
  
 <!-- style -->
- 
-<!--   
-<body background='/Users/fpearson/Downloads/img_main.jpg'>
--->
+
  
 <!-- #include virtual="/eng/includes/header-end.inc" -->
-                <div id="wb-main" role="main"><div id="wb-main-in">
+                
                                 <!-- MainContentStart -->
+
  
- 
+
+
+
+
+
 <!-- JQUERY -->
 <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
-<script src="jquery-2.1.3.min.js" type="text/javascript"></script>
+<!-- <script src="jquery-2.1.3.min.js" type="text/javascript"></script> -->
 <!-- JQUERY END -->
 
-<div id="body_container">
-	<div id="container">
+<body>
+
+	<div id="wb-main" role="main"><div id="wb-main-in">
+		<span id="wb-rsz">&nbsp;</span>
+
+<div id="wb-frmvld">
 
 	<form id="form1" action="proces1.aspx" method="post" name="form1">
 
@@ -185,19 +192,19 @@ select {
 <!-- staasdf -->
 	<fieldset>
 	  <legend><strong>Application type</strong></legend>
-	<div class='left'>
-		<div><span class="man">*</span><label>I am applying as the</label><span class="man"> (required)</span></div>
-		<p class="mandatory left" id="vtype" tabindex="1">
-		  <label for="v1"><input type="radio" name="app_type" id="v1"  value="0" />Victim</label>
+	<div class='left required'>
+		<label>I am applying as the <strong class='man'>(required)</strong></label>
+	
+		<p id="vtype" tabindex="1">
+		  <label for="v1"><input type="radio" name="app_type" id="v1" required="required" value="0" />Victim</label>
 		  	<br>
 		  <label for="v2"><input type="radio" name="app_type" id='v2'  value="1" />support person for the victim</label>
-		</p><br>
-			
-	
-		<div class='left' id="type_support" style="display:none;">
-			<label><span class="man">*</span> What is your relationship to the victim? (i.e. parent, spouse etc.) </label><span class="man"> (required)</span>
-			<input type="text" class="textfield" id="support_type" name="support_type" />
-		</div>
+		</p><br>			
+	</div>
+
+	<div class='left required' id="type_support" style="display:none;">
+		<label><span class="man">*</span> What is your relationship to the victim? (i.e. parent, spouse etc.) </label><strong class="man"> (required)</strong>
+		<input type="text" class="textfield" id="support_type" required="required" name="support_type" />
 	</div>
 	
 	</fieldset>
@@ -218,115 +225,112 @@ select {
 		</p>
 
 		<p class='left'>
-			<label for="firstname"><span class="man">*</span> First Name </label><span class="man"> (required)</span><br>
-			<input type="text" class="mandatory textfield" id="firstname" name="firstname" />  			
+			<label for="firstname"><span class="man">*</span> First Name <strong class="man"> (required)</strong><br>
+			<input type="text" class="mandatory textfield" id="firstname" name="firstname" /> </label>
 		</p>
 		<p class='left'>
-			<label><span class="man">*</span> Last Name</label><span class="man"> (required)</span> <br>
+			<label><span class="man">*</span> Last Name<strong class="man"> (required)</strong> <br>
 			<input type="text" class="mandatory textfield" id="surname" name="surname" />  
+			</label>
 		</p>
 
 		<p claas='left'>
-			<label for="addr_canada"><span class="man">*</span> Mailing address (Canada)</label><span class="man"> (required)</span><br>
-			<textarea id="addr_canada" class="mandatory" cols="32" rows="5" name="addr_canada"></textarea>
+			<label for="addr_canada"><span class="man">*</span> Mailing address (Canada)<strong class="man"> (required)</strong><br>
+			<textarea id="addr_canada" class="mandatory" cols="32" rows="5" name="addr_canada"></textarea></label>
 		</p>
 			
 
 		<p class='left'>
-			<label for="addr_abroad"> Mailing address (Outside Canada), if applicable </label><br>
-			<textarea id="addr_abroad" cols="32" rows="5" name="addr_abroad"></textarea>
+			<label for="addr_abroad"> Mailing address (Outside Canada), if applicable <br>
+			<textarea id="addr_abroad" cols="32" rows="5" name="addr_abroad"></textarea></label>
 		</p>
 
 		<p class='left'>
-			<label for="phone1"><span class="man">*</span> Tel.No.(main)</label><span class="man"> (required)</span><br>
-			<input type="text" class="mandatory textfield" id="phone1" name="phone1" />
+			<label for="phone1"><span class="man">*</span> Tel.No.(main)<span class="man"> (required)</span><br>
+			<input type="text" class="textfield" required="required" id="phone1" name="phone1" /></label>
 		</p>
 
 		<p class='left'>
-			<label for="phone2"> Tel.No.(work)</label><br>
-			<input type="text" class="textfield" id="phone2" name="phone2" />
+			<label for="phone2"> Tel.No.(work)<br>
+			<input type="text" class="textfield" id="phone2" name="phone2" /></label>
 		</p>
 		
 
 		<p class='left'>
-			<label for="phone4"> Fax </label><br>
-			<input type="text" class="textfield" id="phone4" name="phone4" />
+			<label for="phone4"> Fax <br>
+			<input type="text" class="textfield" id="phone4" name="phone4" /></label>
 		</p>
 
 
 		<p class='left' id="email_container">
-			<label for="email"><span class="man">*</span> Email</label><span class="man"> (required)</span><br>
-			<input type="text" class="mandatory emailfield" id="email" name="email" />
+			<label for="email"><span class="man">*</span> Email<span class="man"> (required)</span><br>
+			<input type="text" class="emailfield" required="required" id="email" name="email" /></label>
 		</p>
 
 		<p class='left'>
-			<label for="yrBirth"><span class="man">*</span> Year of birth (YYYY)</label><span class="man"> (required)</span><br>
-			<input type="text" class="mandatory date" id="yrBirth" name="yrBirth" />
+			<label for="yrBirth"><span class="man">*</span> Year of birth (YYYY)<strong class="man"> (required)</strong><br>
+			<input type="text" class="date" id="yrBirth" required="required" name="yrBirth" /></label>
 		</p>
 
 		<p class='left'>
-			<label  class="mandatory"><span class="man">*</span> Do you have travel insurance?</label><span class="man"> (required)</span><br>
-			<span class="mandatory" style="float:left;" tabindex="13">
-				<label for="ti-yes">Yes<input type="radio" class="yes" name="ti" id="ti-yes" value="1" /></label><br>
-				<label for="ti-no">No<input type="radio" class="no" name="ti" id="ti-no" value="0" /></label> 
-			</span>
+			<span class="man">*</span> Do you have travel insurance?<span class="man"> (required)</span><br>			
+				<label for="ti-yes">Yes<input type="radio" class="yes" required="required" name="ti" id="ti-yes" value="1" /></label><br>
+				<label for="ti-no">No<input type="radio" class="no" name="ti" id="ti-no" value="0" /></label> 			
 		</p>
 
 		<p class='left'>
-			<label class="mandatory"><span class="man">*</span> Do you have work insurance?</label><span class="man"> (required)</span><br>
-			<span id="work_insurance" class="mandatory" style="float:left;" tabindex="13">
-				<label for="wi_1">Yes<input type="radio" class="yes" name="wi" id="wi_1" value="1" /></label><br>
-				<label for="wi_2">No<input type="radio" class="no" name="wi" id="wi_2" value="0" /></label>
-			</span>
+			<span class="man">*</span> Do you have work insurance?<strong class="man"> (required)</strong><br>			
+				<label for="wi_1">Yes<input type="radio" class="yes" required="required" name="wi" id="wi_1" value="1" /></label><br>
+				<label for="wi_2">No<input type="radio" class="no" name="wi" id="wi_2" value="0" /></label>			
 		</p>
 		
 		<p class='left' id="coverage" style="display:none">
-			<label for="coverage_details">Describe your coverage</label>
-			<textarea id="coverage_details" cols="32" rows="5" name="work_insurance_coverage"></textarea>	
+			<label for="coverage_details">Describe your coverage
+			<textarea id="coverage_details" cols="32" rows="5" name="work_insurance_coverage"></textarea></label>
 		</p>
 
 
 		<p class='left'>
-			<label for="passportNo"><span class="man">*</span> Passport Number</label><span class="man"> (required)</span><br>
-			<input type="text" class="mandatory textfield" id="passportNo" name="passportNo" />
+			<label for="passportNo"><span class="man">*</span> Passport Number<strong class="man"> (required)</strong><br>
+			<input type="text" class="textfield" required="required" id="passportNo" name="passportNo" /></label>
 		</p>
 		
 		<p class='left'>
-			<label for="passportExpiryDate"><span class="man">*</span> Expiry Date</label><span class="man"> (required)</span><br>
-			<input type="text" class="mandatory date" id="passportExpiryDate" name="passportExpiryDate" />
+			<label for="passportExpiryDate"><span class="man">*</span> Expiry Date<strong class="man"> (required)</strong><br>
+			<input type="text" class="date" id="passportExpiryDate" required="required" name="passportExpiryDate" /></label>
 		</p>
 
 		<p class='left'>
-			<label for="other_travel"> If carrying other travel document, specify </label><br>
-			<textarea id="other_travel" cols="32" rows="5" name="other_travel"></textarea>
+			<label for="other_travel"> If carrying other travel document, specify <br>
+			<textarea id="other_travel" cols="32" rows="5" name="other_travel"></textarea></label>
 		</p>
 
 
 		
 		<p class='left'>
-			<label for="status_country"> Status in country where the crime occurred </label><br>
-			<select class="select mandatory" id="status_country" name="status_country">
+			<label for="status_country"> Status in country where the crime occurred <strong class="man">(required)</strong> <br>
+			<select id="status_country" required="required" name="status_country">
 				<option value="0"> </option>
 				<option value="1">Student</option>
 				<option value="2">On Business</option>	
 				<option value="3">Tourist</option>
 				<option value="4">Other</option>	
 			</select>
+			</label>
 		</p>
 
 		<p class='left' id="status" style="display:none;">
-			<label for="specify_status"><span class="man">*</span>  Specify status</label><span class="man"> (required)</span>
-			<input type="text" class="textfield" id="specify_status" name="specify_status" />
+			<label for="specify_status"><span class="man">*</span>  Specify status<strong class="man"> (required)</strong>
+			<input type="text" class="textfield" id="specify_status" name="specify_status" /></label>
 		</p>
 			
 		<p class='left'>
-			<label for="payable"><span class="man">*</span>  If considered for funding, cheque payable to</label>
-			<span class="man"> (required)</span><br>
+			<label for="payable"><span class="man">*</span>  If considered for funding, cheque payable to
+			<strong class="man"> (required)</strong><br>
 			<input type="text" class="mandatory textfield" id="payable" name="payable" />
+			</label>
 		</p>
 	
-
-
 	</fieldset>
 
 	<fieldset>
@@ -334,50 +338,52 @@ select {
 
 	
 	<p class='left'>
-		<span class="man">*</span>Victimization Type<span class="man"> (required)</span><br><br>
-		<span id="vf_type" class="mandatory" style="float:left;" tabindex="23">
-			<span><input type="radio" name="nov" id="nov1" value="0" /><label for="nov1">Homicide</label></span><br>
-			<span><input type="radio" name="nov" id="nov2" value="1" /><label for="nov2">Sexual Assault</label></span><br>
-			<span><input type="radio" name="nov" id="nov3" value="2" /><label for="nov3">Aggravated assault</label></span><br>
-			<span><input type="radio" name="nov" id="nov4" value="3" /><label for="nov4">Assault with serious personal violence, or threat of serious personal violence, including against a child</label></span><br>
+		<span class="man">*</span>Victimization Type<strong class="man"> (required)</strong><br><br>
+		
+			<label for="nov1"><input type="radio" required="required" name="nov" id="nov1" value="0" />Homicide</label><br>
+			<label for="nov2"><input type="radio" name="nov" id="nov2" value="1" />Sexual Assault</label><br>
+			<label for="nov3"><input type="radio" name="nov" id="nov3" value="2" />Aggravated assault</label><br>
+			<label for="nov4"><input type="radio" name="nov" id="nov4" value="3" />Assault with serious personal violence, or threat of serious personal violence, including against a child</label><br>
 				
-		</span><br><br><br><br>
+		
 	</p>
 
 	<p class='left'>
-		<label for="locOffence"><span class="man">*</span>  Location of crime (city / country)</label><span class="man"> (required)</span><br>
-		<input type="text" class="mandatory textfield" id="locOffence" name="locOffence" />
+		<label for="locOffence"><span class="man">*</span>  Location of crime (city / country)<strong class="man"> (required)</strong><br>
+		<input type="text" class="mandatory textfield" required="required" id="locOffence" name="locOffence" /></label>
 	</p>
 
 	<p class='left'>
-		<label for="offenceDate"><span class="man">*</span>  Date of crime</label><span class="man"> (required)</span><br>
-		<input type="text" class="mandatory date" id="offenceDate" name="offenceDate" />
+		<label for="offenceDate"><span class="man">*</span>  Date of crime<strong class="man"> (required)</strong><br>
+		<input type="text" class="mandatory date" id="offenceDate" name="offenceDate" /></label>
 	</p>
        
         <div>		
-	        <label><span class="man">*</span> Have you contacted the Canadian Embassy or Consulate to report the crime? </label><span class="man"> (required)</span><br>
-	        <span class="mandatory" id="consulate" style="float:left;" tabindex="30">
-	          <label for="ec1"><input type="radio" name="ec" id="ec1"  value="1" />Yes</label><br>
-	          <label for="ec2"><input type="radio" name="ec" id="ec2"  value="0" />No</label>
-	        </span>
+	        <label><span class="man">*</span> Have you contacted the Canadian Embassy or Consulate to report the crime? <strong class="man"> (required)</strong><br>	        
+	          <label for="ec1"><input type="radio" required="required" name="ec" id="ec1"  value="1" />Yes</label><br>
+	          <label for="ec2"><input type="radio" name="ec" id="ec2"  value="0" />No</label>	        
+	        </label>
         </div>
 
         <div id="official_container" style="display:none;">
-	        <label for="official_name"><span class="man">*</span> What is the name of the official you spoke with?</label><span class="man"> (required)</span>
-	        <input type="text" class="textfield" id="official_name" name="official_name" />
+	        <label for="official_name"><span class="man">*</span> What is the name of the official you spoke with?<strong class="man"> (required)</strong>
+	        <input type="text" class="textfield" required="required" id="official_name" name="official_name" />
+	        </label>
         </div>
 
         <div id="official_contact_container" style="display:none;">
-	        <label for="official_contact"><span class="man">*</span> What is the official"s phone number or email?</label><span class="man"> (required)</span>
-	        <input type="text" class="textfield" id="official_contact" name="official_contact" />
+	        <label for="official_contact"><span class="man">*</span> What is the official"s phone number or email?<strong class="man"> (required)</strong>
+	        <input type="text" class="textfield" required="required" id="official_contact" name="official_contact" />
+	        </label>
         </div>  
 
 	  <p class='left'>
-	<label><span class="man">*</span>Do you have a police report?</label><span class="man"> (required)</span><br>
-	<span class="mandatory" id="police" style="float:left;" tabindex="26">
-	  <label for="pol-1"><input type="radio" name="police" id="pol-1" value="1" />Yes</label><br>
+	<label><span class="man">*</span>Do you have a police report?<span class="man"> (required)</span><br>
+	
+	  <label for="pol-1"><input type="radio" required="required" name="police" id="pol-1" value="1" />Yes</label><br>
 	  <label for="pol-0"><input type="radio" name="police" id="pol-0" value="0" />No</label><br>	  
-	</span>
+	
+	</label>
 	<strong class='left'>If yes, send the report by email to: <a href="mailto:Victims-Abroad-Fund-Manager@justice.gc.ca">Victims-Abroad-Fund-Manager@justice.gc.ca</a></strong>
 	</p>
 
@@ -388,16 +394,15 @@ select {
 
     <fieldset>
     	
-	<legend><span class="man">*</span>In your own words provide a detailed account of what happened<span class="man"> (required)</span></legend>
-	<textarea class="mandatory" id="descriptionOfOffence" style="width:100%" rows="15" name="descriptionOfOffence"></textarea>
+	<legend><span class="man">*</span>In your own words provide a detailed account of what happened<strong class="man"> (required)</strong></legend>
+	<textarea id="descriptionOfOffence" style="width:100%" required="required" rows="15" name="descriptionOfOffence"></textarea>
 
 	</fieldset><br>
 
 
-
 	<fieldset>
-	<legend> <span class="man">*</span>Provide a detailed description of what your expenses are<span class="man"> (required)</span></legend>
-	<textarea class="mandatory" id="descriptionOfExpense" style="width:100%" rows="15" name="descriptionOfExpense"></textarea>
+	<legend> <span class="man">*</span>Provide a detailed description of what your expenses are<strong class="man"> (required)</strong></legend>
+	<textarea id="descriptionOfExpense" style="width:100%" required="required" rows="15" name="descriptionOfExpense"></textarea>
 	<br>
 	</fieldset>
 
@@ -421,7 +426,18 @@ select {
         
 	</form>
 
-</div></div>
+</div>
+
+
+<!-- WET -->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://wet-boew.github.io/v4.0-ci/js/deps/jquery.validate.min.js"></script>
+<!-- <script src="http://wet-boew.github.io/wet-boew/js/wet-boew.min.js"></script> -->
+<script src="http://wet-boew.github.io/v4.0-ci/js/i18n/en.min.js"></script>
+<script src="http://wet-boew.github.io/v4.0-ci/js/deps/additional-methods.min.js"></script>
+
+</body>
    
  <!-- CustomScriptsStart -->
  
@@ -430,21 +446,21 @@ select {
 $(document).ready(function() {
 
 
-$("#submitButton").click(function() {
+// $("#submitButton").click(function() {
 
 
-if (validate()) {
-  //alert("validated")
-  $("#form1").submit();
+// if (validate()) {
+//   //alert("validated")
+//   $("#form1").submit();
 
-} else {
+// } else {
 
-  //alert("not validated")
+//   //alert("not validated")
 
-}
+// }
 
 
-})
+// })
 
 
 	var $tdt = $("#tdt")
@@ -550,11 +566,6 @@ if (validate()) {
 			}
 		}
 	})
-
-	
-
-
-
 
 	// function validate() {
 				     
